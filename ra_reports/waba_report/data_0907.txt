@@ -1,0 +1,11 @@
+EVENT_DATE|CUSTOMER_NAME|USER_NAME|CUSTOMER_TYPE_CODE|SERVICE_TYPE|SUBMITION|DELIVERED|FAILED|CREDIT_BACK_CNT|CUSTOMER_EMAIL_ID|EMPLOYEE_EMAILID
+2024-07-08|ADITEK_SYSTEMS_PRIVATE_LIMITED|adtekotp|PRE|OTP|65|63|2|1|prabir@100coins.co|yogesh.dusane@nexgplatforms.com
+2024-07-08|ADITEK_SYSTEMS_PRIVATE_LIMITED|adtektrn|PRE|Transactional|121197|110977|10220|8176|prabir@100coins.co|yogesh.dusane@nexgplatforms.com
+2024-07-08|INOTRI_MEDIA_TECH_SOLUTION_PRIVATE_LTD|inotrimtrn|PRE|Transactional|14067|9159|4908|3739|shivamimst@gmail.com|sushant.khaware@nexgplatforms.com
+2024-07-08|K_UTILITY|kutiltyo|PRE|OTP|60115|51055|9060|7211|prem@kutility.com|yogesh.dusane@nexgplatforms.com
+2024-07-08|K_UTILITY|kutiltyt|PRE|Transactional|13791|10858|2933|2334|prem@kutility.com|yogesh.dusane@nexgplatforms.com
+2024-07-08|N_S_TECHNOLOGY|nstchtrn|PRE|Transactional|3|0|3|2|ashish@nstechindia.in|ajay.chauhan@nexgplatforms.com
+2024-07-08|SHIV.COM_TECHNOLOGIES_NAVI_MUMBAI|shivcomotp|PRE|OTP|2668|2369|299|236|rajesh.salunkhe@sdctechnologies.co.in|yogesh.dusane@nexgplatforms.com
+2024-07-08|SITANI_GROUPS|sitanitrnt|PRE|Transactional|305|276|29|23|sitani@sitanigroup.com|ashish.gupta@nexgplatforms.com
+2024-07-08|K_UTILITY|vtechtrn|PRE|Transactional|3944|2595|1349|1073|prem@kutility.com|yogesh.dusane@nexgplatforms.com
+2024-07-08|WORDBOX_SERVICES|wrdbxgov|PRE|Government|878|830|48|48|manoj@wordbox.in|yogesh.dusane@nexgplatforms.com

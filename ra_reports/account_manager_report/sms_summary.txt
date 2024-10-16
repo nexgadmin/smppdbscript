@@ -1,0 +1,204 @@
+EMPLOYEE_NAME|CUSTOMER_NAME|EMPLOYEE_EMAILID|CUSTOMER_TYPE_CODE|TOTAL_SUBMITTED|TOTAL_DELIVERED|TOTAL_DELIVERED_PCT|YESTERDAY_SUBMITTED|YESTERDAY_DELIVERED|YESTERDAY_DELIVERED_PCT
+Ajay Chauhan|ADFINMARK|ajay.chauhan@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ajay Chauhan|CERF SOLUTIONS PRIVATE LIMITED|ajay.chauhan@nexgplatforms.com|POST|9065204|6125530|68%|649294|418197|64%
+Ajay Chauhan|DIGITAL HUB INDIA PVT LTD|ajay.chauhan@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ajay Chauhan|DOUBLEM TECHNOLOGIES|ajay.chauhan@nexgplatforms.com|PRE|1293076|982061|76%|84289|66578|79%
+Ajay Chauhan|EVOLGENCE TELECOM SYSTEMS PRIVATE LIMITED|ajay.chauhan@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ajay Chauhan|FABMEDIATECH PVT LTD|ajay.chauhan@nexgplatforms.com|PRE|18534933|13395996|72%|981294|699744|71%
+Ajay Chauhan|FINLAB AI SOLUTIONS PRIVATE LIMITED|ajay.chauhan@nexgplatforms.com|PRE|3014|2614|87%|7|6|86%
+Ajay Chauhan|MANTHAN IT SOLUTIONS|ajay.chauhan@nexgplatforms.com|POST|7617218|4390631|58%|1052024|692130|66%
+Ajay Chauhan|MINDSMIRATUS TECHNOLOGIES PVT LTD|ajay.chauhan@nexgplatforms.com|POST|320995|62807|20%|60588|0|0%
+Ajay Chauhan|N S TECHNOLOGY|ajay.chauhan@nexgplatforms.com|PRE|106|0|0%|10|0|0%
+Ajay Chauhan|PERTINAX SOLUTIONS PVT LTD|ajay.chauhan@nexgplatforms.com|POST|71389|25941|36%|0|0|0%
+Ajay Chauhan|R P INFOTECH|ajay.chauhan@nexgplatforms.com|POST|100986|54092|54%|6976|4073|58%
+Ajay Chauhan|RINGING INFOTECH|ajay.chauhan@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ajay Chauhan|SPEQTRA INNOV|ajay.chauhan@nexgplatforms.com|PRE|166670|110279|66%|16595|11497|69%
+Ajay Chauhan|TELEBU COMMUNICATIONS LLP |ajay.chauhan@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ajay Chauhan|TEST ANANYA|ajay.chauhan@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ajay Chauhan|THE BASICS DIGITAL SOLUTIONS PRIVATE LIMITED|ajay.chauhan@nexgplatforms.com|PRE|747736|600955|80%|73846|56602|77%
+Ajay Chauhan|VOXVALLEY TECHNOLOGIES PRIVATE LIMITED|ajay.chauhan@nexgplatforms.com|POST|56093|38209|68%|3538|2331|66%
+Ajay Chauhan|XORAX SOFTS PVT LTD|ajay.chauhan@nexgplatforms.com|POST|18343|9570|52%|11581|9570|83%
+Ashish Gupta|ALL SMS|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|AZMARQ TECHNOVATION PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|16334488|11738453|72%|1026761|845712|82%
+Ashish Gupta|CBIS INDIA PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|CELETEL TECHNOLOGIES PVT LTD|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|CYBONIX TECHNOLOGIES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|DAKSH INFOSOFT PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|DATAGEN INTERNET SERVICES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|DGAS SKYWORLD SMS TECHNOLOGY PVT LTD|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|DIGIDONAR TELESERVICES|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|EASY WEB SERVICES|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|FOXGLOVE CONNECT PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|GETWAY TECHNOLOGY|ashish.gupta@nexgplatforms.com|POST|572916|245897|43%|1380|1246|90%
+Ashish Gupta|GLOBAL SERVICES|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|GLOBE COMMUNICATION|ashish.gupta@nexgplatforms.com|POST|79435|73609|93%|5934|5450|92%
+Ashish Gupta|GOLDEN TOUCH INVESTMENTS|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|HIND ADSOFT PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|INBOX MEDIA PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|138778056|103013860|74%|7026371|5750249|82%
+Ashish Gupta|INGENYRIA ELECTRICAL MART PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|JAGAT PHARMA PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|KYK SOLUTIONS PVT LTD|ashish.gupta@nexgplatforms.com|POST|411212|234389|57%|14354|7437|52%
+Ashish Gupta|MAGNUS IT SOLUTIONS PVT LTD|ashish.gupta@nexgplatforms.com|PRE|2339|1430|61%|0|0|0%
+Ashish Gupta|MANISH PURWAR|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|MAPPS TELE SERVICES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|2906|2702|93%|285|257|90%
+Ashish Gupta|MESSAGEBYTE TECHNOLOGIES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|MICRONET INFOCOM & LOGISTICS PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|1497799|1236734|83%|128153|114212|89%
+Ashish Gupta|MISHTEL SERVICES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|16082790|13071591|81%|1428|1175|82%
+Ashish Gupta|MUZZTECH WIRELESS PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|MY INBOX MEDIA PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|11439|0|0%|866|0|0%
+Ashish Gupta|NKMB TECH PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|OMATICS DIGITAL & MARKETING PVT LTD|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|PARAHIT TECHNOLOGIES LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|PROACTIVE PROFESSIONAL SERVICES PVT LTD|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|PRP SERVICES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|SAET AGENCY PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|SANCHAR TECH PVT LTD|ashish.gupta@nexgplatforms.com|PRE|71960|53780|75%|4379|3778|86%
+Ashish Gupta|SARV WEBS PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|60911|48114|79%|0|0|0%
+Ashish Gupta|SHINE NETCORE|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|SHREE RADHA TRADER|ashish.gupta@nexgplatforms.com|POST|11078945|8619140|78%|297850|216542|73%
+Ashish Gupta|SITANI GROUPS|ashish.gupta@nexgplatforms.com|PRE|48718|31645|65%|4066|3317|82%
+Ashish Gupta|SMART TECH MESSAGING PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|2237|1973|88%|142|120|85%
+Ashish Gupta|TELEOPEDIA|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|TELEOPEDIA COMMUNICATIONS|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|TRUSTSIGNAL VENTURES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|18438384|13239046|72%|1389724|931848|67%
+Ashish Gupta|U2OPIA MOBILE PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|VALUE ONE DIGITAL MEDIA|ashish.gupta@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Ashish Gupta|VENETS MEDIA PVT LTD|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|WEBCZAR SOLUTIONS|ashish.gupta@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Ashish Gupta|ZAPSN BIZVENTURES PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|POST|455147|270831|60%|6439|5917|92%
+Backend User|ARTZSOURCE TECHNOLOGY SERVICES PRIVATE LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|BALAJI TRAVCO INDIA PVT LTD|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|BROADNET TECHNOLOGIES (INDIA) PRIVATE LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|COLORTEXT DIGITAL SOLUTIONS PRIVATE LIMITED - JIO|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|DIAMOND OCEAN|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|DIGIGLITZ TECHNOLOGIES PRIVATE LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|DIGIWHIFF SOLUTIONS LLP|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|GARAGE PRODUCTIONS PRIVATE LIMITED|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|JIVA AYURVEDIC PHARMACY LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|MAVYAH TECHNOLOGIES PRIVATE LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|MITHRA IT SOLUTIONS|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|REFINED IT SOLUTIONS AND MARKETING PRIVATE LIMITED|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|S AND S SOLUTIONS|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|SANDESHTECH PLATFORMS PRIVATE LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|SHELTER LAYOUTS PRIVATE LIMITED|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|SOFTQORE - MANU GEORGE|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|TUBELIGHT COMMUNICATIONS LIMITED|harbans.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Backend User|VA NETWORKS|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Backend User|VONVIC SOFTWARES PVT LTD|harbans.singh@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Baljeet Singh|MDS DIGITAL MEDIA PRIVATE LIMITED|baljeet.singh@nexgplatforms.com|POST|46533|27696|60%|18|18|100%
+Baljeet Singh|ONEXTEL MEDIA PRIVATE LIMITED|baljeet.singh@nexgplatforms.com|POST|21|6|29%|3|0|0%
+Baljeet Singh|VALUEMOBI MEDIA PRIVATE LIMITED|baljeet.singh@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Baljeet Singh|WALKOVER WEB SOLUTIONS PRIVATE LIMITED|baljeet.singh@nexgplatforms.com|POST|2198346|1616190|74%|178389|142949|80%
+CSD Support|NEXG PLATFORMS PRIVATE LIMITED|csdsupport@nexgplatforms.com|POST|479427|315243|66%|49932|27683|55%
+Kshitij Sharma|ANDLAY ESTATES|kshitij.sharma@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Kshitij Sharma|FLAMBOYANT TECHNOLOGIES PRIVATE LIMITED|kshitij.sharma@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Kunal Rana|3M DIGITAL NETWORKS PRIVATE LIMITED|kunal.rana@nexgplatforms.com|POST|28733204|22951854|80%|1053869|844831|80%
+Kunal Rana|ALENDEI PLATFORMS PVT LTD|kunal.rana@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Kunal Rana|ANNTEL INDIA|kunal.rana@nexgplatforms.com|PRE|9738|8403|86%|2267|1979|87%
+Kunal Rana|ARIHANT IT SOLUTIONS|kunal.rana@nexgplatforms.com|POST|2490|2324|93%|28|27|96%
+Kunal Rana|ASP UTILITY|kunal.rana@nexgplatforms.com|PRE|36499|29159|80%|1121|988|88%
+Kunal Rana|AVM CLOUD SERVICES PRIVATE LIMITED |kunal.rana@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Kunal Rana|BLUE WAVES MEDIA|kunal.rana@nexgplatforms.com|POST|579179|420349|73%|32368|23673|73%
+Kunal Rana|EPINET INFO PVT LTD|kunal.rana@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Kunal Rana|IMMENSE SMART SOLUTIONS|kunal.rana@nexgplatforms.com|PRE|9|9|100%|0|0|0%
+Kunal Rana|JUST TRUE SMS DIGITAL PRIVATE LIMITED|kunal.rana@nexgplatforms.com|PRE|310339|270554|87%|21530|21112|98%
+Kunal Rana|KONCEPTWISE DIGITAL MEDIA PVT. LTD|kunal.rana@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Kunal Rana|MADZ MOBILE PRACHAR PRIVATE LIMITED|kunal.rana@nexgplatforms.com|POST|1147569|810500|71%|180762|123743|68%
+Kunal Rana|MIT INFOCOM (INDIA) PRIVATE LIMITED|kunal.rana@nexgplatforms.com|PRE|381098|276891|73%|20979|14293|68%
+Kunal Rana|MOBIROUTE TELESERVICES PVT LTD|kunal.rana@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Kunal Rana|SEVEN OCEANS TELESERVICES PRIVATE LIMITED|kunal.rana@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Kunal Rana|SHREE TRIPADA INFOMEDIA INDIA PRIVATE LIMITED|kunal.rana@nexgplatforms.com|POST|5040319|4300912|85%|372730|332211|89%
+Rajesh Dwivedi|AMYNTAS MEDIA WORKS LLP|rajesh.dwivedi@nexgplatforms.com|PRE|306407|249933|82%|785|738|94%
+Rajesh Dwivedi|BHARATSOKAGAKKAI|rajesh.dwivedi@nexgplatforms.com|PRE|1920|1846|96%|58|57|98%
+Rajesh Dwivedi|BUZZLER TECHNOLOGIES PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|1320|483|37%|9|9|100%
+Rajesh Dwivedi|COOKIEJAR|rajesh.dwivedi@nexgplatforms.com|POST|72473|63948|88%|4311|3862|90%
+Rajesh Dwivedi|DECIMAL|rajesh.dwivedi@nexgplatforms.com|POST|53269|44695|84%|1904|1464|77%
+Rajesh Dwivedi|DIGIALAYA SOLUTIONS PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|7242015|6259703|86%|606098|535979|88%
+Rajesh Dwivedi|DIGIVIVE|rajesh.dwivedi@nexgplatforms.com|POST|9233|6775|73%|1101|904|82%
+Rajesh Dwivedi|DR. LAL PATHLABS LTD|rajesh.dwivedi@nexgplatforms.com|POST|81511|58769|72%|7001|4945|71%
+Rajesh Dwivedi|EAZY VENUE PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|EAZYVENUE|rajesh.dwivedi@nexgplatforms.com|PRE|4|4|100%|0|0|0%
+Rajesh Dwivedi|ETERNALGANGES GANGES PRESS PVT LTD|rajesh.dwivedi@nexgplatforms.com|PRE|981|878|90%|58|43|74%
+Rajesh Dwivedi|EXTRAMARKS EDUCATION INDIA PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|16678|14599|88%|1615|1469|91%
+Rajesh Dwivedi|FINERTIA|rajesh.dwivedi@nexgplatforms.com|PRE|5|5|100%|0|0|0%
+Rajesh Dwivedi|GO 2 MARKET INDIA PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Rajesh Dwivedi|ICUBESWIRE TECHNOLOGIES PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|5|0|0%|0|0|0%
+Rajesh Dwivedi|INTERNATIONAL TRACTORS LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|JIO INSURANCE BROKING LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|28004|23960|86%|1922|1721|90%
+Rajesh Dwivedi|MODALITY AUTOMATION PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|208|188|90%|22|19|86%
+Rajesh Dwivedi|NXFIN TECHNOLOGIES PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|PARV COMMUNICATIONS PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|PATHKIND DIAGNOSTICS PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|554585|256596|46%|10849|8667|80%
+Rajesh Dwivedi|PEOPLE BRIDGES|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|PINNACLEWORKS INFOTECH PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|135|120|89%|10|6|60%
+Rajesh Dwivedi|RECHT TECH PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|616374|385212|62%|44348|27682|62%
+Rajesh Dwivedi|RELIANCE RETAIL FINANCE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|76475|46032|60%|2215|1721|78%
+Rajesh Dwivedi|RU LOANS|rajesh.dwivedi@nexgplatforms.com|PRE|30976|22771|74%|2656|1905|72%
+Rajesh Dwivedi|SATIN CREDITCARE NETWORK LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Rajesh Dwivedi|SBI GLOBAL FACTORS LTD|rajesh.dwivedi@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Rajesh Dwivedi|SIMPLIFIED FINANCIAL SOLUTIONS PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Rajesh Dwivedi|SOUTH CITY SCHOOL|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|SPENCER'S RETAIL LIMITED|rajesh.dwivedi@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Rajesh Dwivedi|SPICELEX TECHNOLOGY PRIVATE LIMITED|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Rajesh Dwivedi|THE IVORY PALACE|rajesh.dwivedi@nexgplatforms.com|POST|1350|642|48%|80|62|78%
+Rajesh Dwivedi|UPKARMA|rajesh.dwivedi@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Satheesh Kumar|ENGAGENEST TECHNOLOGIES PRIVATE LIMITED|satheesh.kumar@nexgplatforms.com|POST|3688596|3311855|90%|117712|11825|10%
+Satheesh Kumar|RUBIA SERVICES (OPC) PRIVATE LIMITED|satheesh.kumar@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+SISCOM TELEVENTURES|CHANDAN HEALTHCARE LIMITED|ashish.gupta@nexgplatforms.com|PRE|77|75|97%|8|8|100%
+SISCOM TELEVENTURES|LOGIC E ENGINEER PRIVATE LIMITED|ashish.gupta@nexgplatforms.com|PRE|33|31|94%|2|1|50%
+Sushant Khaware|ALOT DIGITAL SOLUTIONS INDIA PVT LTD|sushant.khaware@nexgplatforms.com|PRE|63016802|43046389|68%|6051789|4411834|73%
+Sushant Khaware|ALTISSADVANCE TECH PRIVATE LIMITED|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|ANNET EDUCATIONAL SERVICES PRIVATE LTD|sushant.khaware@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Sushant Khaware|BLUE OCKTOPUS TECHNOLOGY SYSTEMS PRIVATE|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|CALL DIGITAL FIRE LLP|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|DIAL TEXT|sushant.khaware@nexgplatforms.com|PRE|4|2|50%|0|0|0%
+Sushant Khaware|DNA SMS INDIA PVT LTD |sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|FOLLOWG GLOBAL PRIVATE LIMITED|sushant.khaware@nexgplatforms.com|PRE|196|144|73%|5|2|40%
+Sushant Khaware|INOTRI MEDIA TECH SOLUTION PRIVATE LTD|sushant.khaware@nexgplatforms.com|PRE|4072|2294|56%|524|450|86%
+Sushant Khaware|KAJREE|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|KAVEDIA JEWELLERS PRIVATE LIMITED|sushant.khaware@nexgplatforms.com|PRE|371|355|96%|0|0|0%
+Sushant Khaware|PAASOO TECHNOLOGY INDIA PRIVATE LIMITED|sushant.khaware@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Sushant Khaware|PITCHMAN REALTORS LLP|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|PRESFOUR LLP|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|TECHNO CORE LOGIC LIMITED LIABILITY PARTNERSHIP|sushant.khaware@nexgplatforms.com|POST|1365950|762032|56%|77534|49398|64%
+Sushant Khaware|WEBERLEADS SERVICES PRIVATE LIMITED|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Sushant Khaware|XTEND MARKTING SERVICES|sushant.khaware@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Varun Agrawal|SK BHARTI TRADING COMPANY|varun.agrawal@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|360 MARKETING SERVICE PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|2020974|1478020|73%|115190|92980|81%
+Yogesh Dusane|AFON GROUP|yogesh.dusane@nexgplatforms.com|PRE|248493|189491|76%|11298|10367|92%
+Yogesh Dusane|ALERTBOX VENTURES PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|BHAVANA TELEVENTURES LIMITED|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|BLUE LIFE|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|BUSINESS LEAD|yogesh.dusane@nexgplatforms.com|PRE|350394|313425|89%|25790|22912|89%
+Yogesh Dusane|CELL 24X7 MEDIA TECHNOLOGIES PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|251647|164091|65%|16551|10820|65%
+Yogesh Dusane|CILWO CLOUD PRIVATE LIMITED |yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|EAZY SOLUTIONS|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|EQUENCE TECHNOLOGIES PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|ETTEL MEDIA PVT LTD|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|GP PARSIK SAHAKARI BANK LIMITED|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|HOTSPOTHUB TECHNOLOGY(OPC) PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|INFODREAMZ TECHNOLOGIES NAGPUR PRIVATE LTD|yogesh.dusane@nexgplatforms.com|POST|545245|365898|67%|11610|8881|76%
+Yogesh Dusane|INSIGN TECHNOLOGY PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|19391|11836|61%|930|190|20%
+Yogesh Dusane|IREWARDS SOLUTIONS PVT LTD|yogesh.dusane@nexgplatforms.com|POST|16850|15645|93%|1158|1090|94%
+Yogesh Dusane|K UTILITY|yogesh.dusane@nexgplatforms.com|PRE|14552|11262|77%|86|47|55%
+Yogesh Dusane|KOKAN MERCANTILE CO-OPERATIVE BANK LTD|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|KRISHVI SECURITIES PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|PRE|361|276|76%|120|86|72%
+Yogesh Dusane|MASTERMIND SERVICES|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|MERCE TECHNOLOGIES PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|2|2|100%|0|0|0%
+Yogesh Dusane|OBICAS INFOTECH|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|QUEST SOLUTIONS|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|RAGHAVIIZ DIGITAL MEDIA|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|S S EXPERT SYSTEM|yogesh.dusane@nexgplatforms.com|POST|171400|92921|54%|32215|17317|54%
+Yogesh Dusane|SHIV.COM TECHNOLOGIES NAVI MUMBAI|yogesh.dusane@nexgplatforms.com|PRE|43905|40939|93%|2791|2594|93%
+Yogesh Dusane|STM TECHNOLOGIES|yogesh.dusane@nexgplatforms.com|POST|1430723|840446|59%|85632|42426|50%
+Yogesh Dusane|TALGO TELECOMMUNICATION (OPC) PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|TANISH MARKETING AND SERVICES|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|TEAMWORK INNOVATIONS PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|TECHNOWIZARDS PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|1161662|1079566|93%|77581|72792|94%
+Yogesh Dusane|WEBMATRIX DIGITAL SERVICES|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+Yogesh Dusane|WELLEN TECHNOLOGY PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|WINTECH DIGITAL SOLUTIONS LLP|yogesh.dusane@nexgplatforms.com|PRE|0|0|0%|0|0|0%
+Yogesh Dusane|WORDBOX SERVICES|yogesh.dusane@nexgplatforms.com|PRE|1224476|1022948|84%|708|620|88%
+Yogesh Dusane|WORDBOX SERVICES PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|0|0|0%|0|0|0%
+ZAYN|ADITEK SYSTEMS PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|1309862|1172400|90%|103039|91569|89%
+ZAYN|INFINITIO DIGITAL PRIVATE LIMITED|yogesh.dusane@nexgplatforms.com|POST|6118714|5524772|90%|557009|505987|91%

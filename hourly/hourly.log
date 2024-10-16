@@ -1,0 +1,70 @@
+Wed Oct 16 16:00:01 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+Wed Oct 16 16:00:01 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+Mail Sent start Successfully..... 
+Error Code Report 16-Oct-24
+Mail Sent end Successfully..... 
+
+Wed Oct 16 16:00:34 IST 2024 EndDateTime
+33 Sec
+
+Wed Oct 16 16:00:34 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+Mail Sent start Successfully..... 
+hourly_cdrs_count 16-Oct-24
+Mail Sent end Successfully..... 
+
+Wed Oct 16 16:01:53 IST 2024 EndDateTime
+79 Sec
+
+Wed Oct 16 16:01:53 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+--------------
+LOAD DATA local INFILE 'smpp1.txt' REPLACE INTO TABLE SMSC_ID_MST_TEMP
+FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'
+(SMSC_ID,USER_NAME,SMSC_NAME,PLATFORM,CREATED_BY)
+--------------
+
+Query OK, 212 rows affected (0.00 sec)
+Records: 106  Deleted: 106  Skipped: 0  Warnings: 0
+
+Bye
+--------------
+UPDATE stitching.SMSC_ID_MST_TEMP SET SMSC_NAME='JIO CLOUD' WHERE SMSC_NAME='JIO' AND SMSC_ID IN('Jio_Cloud_TRN','Jio_Cloud_PRO','Jio_Cloud_OTP','Jio_DC_TRN','Jio_DC_PRO','Jio_DC_OTP','Jio_MC3_TRN','Jio_MC2_OTP','9395','9394','9389','9396')
+--------------
+
+Query OK, 8 rows affected (0.00 sec)
+Rows matched: 8  Changed: 8  Warnings: 0
+
+--------------
+UPDATE stitching.SMSC_ID_MST_TEMP SET SMSC_NAME='RELIANCE JIO' WHERE SMSC_NAME='JIO'
+--------------
+
+Query OK, 23 rows affected (0.00 sec)
+Rows matched: 23  Changed: 23  Warnings: 0
+
+--------------
+INSERT IGNORE INTO sms_cdrs.SMSC_ID_MST SELECT * FROM stitching.SMSC_ID_MST_TEMP
+--------------
+
+Query OK, 0 rows affected, 116 warnings (0.01 sec)
+Records: 116  Duplicates: 116  Warnings: 116
+
+Bye
+Mail Sent start Successfully..... 
+smsc_id_count 16-Oct-24
+Mail Sent end Successfully..... 
+
+Wed Oct 16 16:03:32 IST 2024 EndDateTime
+99 Sec
+
+Wed Oct 16 16:03:32 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+min_seq = 7375162094 :: max_seq = 7380106678 :: cdrs_count = 4944585
+DATE_20241016

@@ -1,0 +1,237 @@
+Wed Oct 16 09:10:01 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+DATE_20241011
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_error.txt' INTO TABLE sms_summary_error FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,error,count)
+--------------
+
+Query OK, 0 rows affected, 856 warnings (0.01 sec)
+Records: 856  Deleted: 0  Skipped: 856  Warnings: 856
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_smsc.txt' INTO TABLE sms_summary_smsc FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 51 warnings (0.00 sec)
+Records: 51  Deleted: 0  Skipped: 51  Warnings: 51
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_header.txt' INTO TABLE sms_summary_header FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,header,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 6725 warnings (0.03 sec)
+Records: 6725  Deleted: 0  Skipped: 6725  Warnings: 6725
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary.txt' INTO TABLE sms_summary FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_date,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 51 warnings (0.00 sec)
+Records: 51  Deleted: 0  Skipped: 51  Warnings: 51
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_campaign.txt' INTO TABLE sms_summary_campaign FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,campaign,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+DATE_20241012
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_error.txt' INTO TABLE sms_summary_error FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,error,count)
+--------------
+
+Query OK, 0 rows affected, 792 warnings (0.01 sec)
+Records: 792  Deleted: 0  Skipped: 792  Warnings: 792
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_smsc.txt' INTO TABLE sms_summary_smsc FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 47 warnings (0.00 sec)
+Records: 47  Deleted: 0  Skipped: 47  Warnings: 47
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_header.txt' INTO TABLE sms_summary_header FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,header,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 5863 warnings (0.02 sec)
+Records: 5863  Deleted: 0  Skipped: 5863  Warnings: 5863
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary.txt' INTO TABLE sms_summary FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_date,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 47 warnings (0.00 sec)
+Records: 47  Deleted: 0  Skipped: 47  Warnings: 47
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_campaign.txt' INTO TABLE sms_summary_campaign FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,campaign,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+DATE_20241013
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_error.txt' INTO TABLE sms_summary_error FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,error,count)
+--------------
+
+Query OK, 0 rows affected, 683 warnings (0.00 sec)
+Records: 683  Deleted: 0  Skipped: 683  Warnings: 683
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_smsc.txt' INTO TABLE sms_summary_smsc FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 45 warnings (0.00 sec)
+Records: 45  Deleted: 0  Skipped: 45  Warnings: 45
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_header.txt' INTO TABLE sms_summary_header FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,header,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 5189 warnings (0.02 sec)
+Records: 5189  Deleted: 0  Skipped: 5189  Warnings: 5189
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary.txt' INTO TABLE sms_summary FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_date,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 45 warnings (0.00 sec)
+Records: 45  Deleted: 0  Skipped: 45  Warnings: 45
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_campaign.txt' INTO TABLE sms_summary_campaign FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,campaign,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+DATE_20241014
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_error.txt' INTO TABLE sms_summary_error FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,error,count)
+--------------
+
+Query OK, 0 rows affected, 880 warnings (0.00 sec)
+Records: 880  Deleted: 0  Skipped: 880  Warnings: 880
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_smsc.txt' INTO TABLE sms_summary_smsc FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 56 warnings (0.00 sec)
+Records: 56  Deleted: 0  Skipped: 56  Warnings: 56
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_header.txt' INTO TABLE sms_summary_header FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,header,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 7680 warnings (0.03 sec)
+Records: 7680  Deleted: 0  Skipped: 7680  Warnings: 7680
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary.txt' INTO TABLE sms_summary FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_date,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 56 warnings (0.00 sec)
+Records: 56  Deleted: 0  Skipped: 56  Warnings: 56
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_campaign.txt' INTO TABLE sms_summary_campaign FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,campaign,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+DATE_20241015
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_error.txt' INTO TABLE sms_summary_error FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,error,count)
+--------------
+
+Query OK, 930 rows affected (0.01 sec)
+Records: 930  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_smsc.txt' INTO TABLE sms_summary_smsc FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 52 rows affected (0.00 sec)
+Records: 52  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_header.txt' INTO TABLE sms_summary_header FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,header,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 6718 rows affected (0.08 sec)
+Records: 6718  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary.txt' INTO TABLE sms_summary FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_date,account,smsc,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected, 52 warnings (0.00 sec)
+Records: 52  Deleted: 0  Skipped: 52  Warnings: 52
+
+Bye
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+LOAD DATA local INFILE 'sms_summary_campaign.txt' INTO TABLE sms_summary_campaign FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n' (submit_hour,account,campaign,submit_count,dlr_count,status_delivered,status_failed,status_pending,status_nack)
+--------------
+
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Deleted: 0  Skipped: 0  Warnings: 0
+
+Bye
+
+Wed Oct 16 09:28:51 IST 2024 EndDateTime
+1130 Sec
+

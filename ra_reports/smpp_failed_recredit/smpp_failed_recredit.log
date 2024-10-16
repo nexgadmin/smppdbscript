@@ -1,0 +1,82 @@
+Wed Oct 16 11:00:02 IST 2024 StartDateTime
+
+NO LONG RUNNING PROCESS FOUND TO BE KILL
+2024-10-15|INOTRI_MEDIA_TECH_SOLUTION_PRIVATE_LTD|inotrimtrn|PRE|Transactional|524|450|74|56|shivamimst@gmail.com|sushant.khaware@nexgplatforms.com
+inotrimtrn:credit::::56::::shivamimst@gmail.com::::sushant.khaware@nexgplatforms.com::::shivamimst
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+239443
+--------------
+INSERT INTO credit_history(user_id,recredit,balance,channel,username) SELECT user_id,56,239443,'smpp','inotrimtrn' FROM usersmppcredentials WHERE LOWER(smppusername)='inotrimtrn' limit 1
+--------------
+
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Bye
+2024-10-15|K_UTILITY|kutiltyt|PRE|Transactional|84|47|37|29|prem@kutility.com|yogesh.dusane@nexgplatforms.com
+kutiltyt:credit::::29::::prem@kutility.com::::yogesh.dusane@nexgplatforms.com::::prem
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+127490
+--------------
+INSERT INTO credit_history(user_id,recredit,balance,channel,username) SELECT user_id,29,127490,'smpp','kutiltyt' FROM usersmppcredentials WHERE LOWER(smppusername)='kutiltyt' limit 1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Bye
+2024-10-15|N_S_TECHNOLOGY|nstchtrn|PRE|Transactional|10|0|10|8|ashish@nstechindia.in|ajay.chauhan@nexgplatforms.com
+nstchtrn:credit::::8::::ashish@nstechindia.in::::ajay.chauhan@nexgplatforms.com::::ashish
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+894
+--------------
+INSERT INTO credit_history(user_id,recredit,balance,channel,username) SELECT user_id,8,894,'smpp','nstchtrn' FROM usersmppcredentials WHERE LOWER(smppusername)='nstchtrn' limit 1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Bye
+2024-10-15|SHIV.COM_TECHNOLOGIES_NAVI_MUMBAI|shivcomotp|PRE|OTP|2791|2594|197|156|rajesh.salunkhe@sdctechnologies.co.in|yogesh.dusane@nexgplatforms.com
+shivcomotp:credit::::156::::rajesh.salunkhe@sdctechnologies.co.in::::yogesh.dusane@nexgplatforms.com::::rajesh.salunkhe
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+60585
+--------------
+INSERT INTO credit_history(user_id,recredit,balance,channel,username) SELECT user_id,156,60585,'smpp','shivcomotp' FROM usersmppcredentials WHERE LOWER(smppusername)='shivcomotp' limit 1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Bye
+2024-10-15|SITANI_GROUPS|sitanitrnt|PRE|Transactional|4066|3317|749|606|sitani@sitanigroup.com|ashish.gupta@nexgplatforms.com
+sitanitrnt:credit::::606::::sitani@sitanigroup.com::::ashish.gupta@nexgplatforms.com::::sitani
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+554063
+--------------
+INSERT INTO credit_history(user_id,recredit,balance,channel,username) SELECT user_id,606,554063,'smpp','sitanitrnt' FROM usersmppcredentials WHERE LOWER(smppusername)='sitanitrnt' limit 1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Bye
+2024-10-15|WORDBOX_SERVICES|wrdbxgov|PRE|Government|708|620|88|88|manoj@wordbox.in|yogesh.dusane@nexgplatforms.com
+wrdbxgov:credit::::88::::manoj@wordbox.in::::yogesh.dusane@nexgplatforms.com::::manoj
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+3268178
+--------------
+INSERT INTO credit_history(user_id,recredit,balance,channel,username) SELECT user_id,88,3268178,'smpp','wrdbxgov' FROM usersmppcredentials WHERE LOWER(smppusername)='wrdbxgov' limit 1
+--------------
+
+Query OK, 1 row affected (0.00 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+Bye
+Mail Sent start Successfully..... 
+Failed SMS Re-credit 15-Oct-24
+Mail Sent end Successfully..... 
+
+Wed Oct 16 11:00:03 IST 2024 EndDateTime
+1 Sec
+

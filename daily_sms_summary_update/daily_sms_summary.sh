@@ -1,0 +1,176 @@
+#!/bin/bash
+satrt1=$(date)
+echo $satrt1 StartDateTime
+echo ""
+
+export path1=/data01/shfiles/daily_sms_summary_update
+
+kill1=$(ps -eo comm,pid,etimes,cmd | grep daily_sms_summary.sh | awk '{if($3 > 1800) print $2}')
+
+if [ -z "$kill1" ]
+then
+echo "NO LONG RUNNING PROCESS FOUND TO BE KILL"
+else
+echo "LONG PROCESS KILLED"
+kill -9 $kill1
+fi
+
+cd ${path1}
+mysql -h172.19.4.103 -uroot -pp*E9@r#Xnh sms_cdrs -vvv -e "DELETE FROM DAILY_SUMMARY WHERE EVENT_DATE >= SUBDATE(CURDATE(),5);" 2>/dev/null
+mysql -h172.19.8.163 -uroot -p'Vp$9~ioKy6t^8&e' nexgmis -vvv -e "DELETE FROM DAILY_SUMMARY WHERE EVENT_DATE >= SUBDATE(CURDATE(),5);" 2>/dev/null
+
+echo ":::::::::::::::::::END DELETE DAILY_SUMMARY::::::::::::::::::"
+############################################################DAILY_SUMMARY################################################
+for i in `seq 5 -1 1`
+do
+datepart1=$(date --date="-$i days" +%Y%m%d | awk '{print "DATE_"int($0)}')
+echo "INFOBIP DAILY_SUMMARY "$datepart1
+
+mysql -h172.19.4.103 -uroot -pp*E9@r#Xnh sms_cdrs -vvv -e "
+INSERT INTO DAILY_SUMMARY (EVENT_DATE,USER_NAME,SUBMITION,DELIVERED,FAILED,PLATFORM)
+SELECT EVENT_DATE,UPPER(IFNULL(NULLIF(CHILD_USER_NAME,''),'NEXGCP1')) AS USER_NAME,SUM(TOTAL_PART_OF_SMS) AS SUBMITION,
+SUM(CASE WHEN CRM_ID='5' THEN TOTAL_PART_OF_SMS ELSE 0 END) AS DELIVERED,
+SUM(CASE WHEN CRM_ID!='5' THEN TOTAL_PART_OF_SMS ELSE 0 END) AS FAILED,'INFOBIP' AS PLATFORM
+FROM INFOBIP_CDRS PARTITION("$datepart1") GROUP BY 1,2;
+
+INSERT INTO DAILY_SUMMARY (EVENT_DATE,USER_NAME,SUBMITION,DELIVERED,FAILED,PLATFORM)
+SELECT EVENT_DATE,UPPER(CHILD_USER_NAME) AS USER_NAME,SUM(PARTS) AS SUBMITION,
+SUM(CASE WHEN DESCRIPTION='DELIVRD' THEN PARTS ELSE 0 END) AS DELIVERED,
+SUM(CASE WHEN DESCRIPTION!='DELIVRD' THEN PARTS ELSE 0 END) AS FAILED,'NEXG' AS PLATFORM
+FROM NEXG_CDRS PARTITION("$datepart1") GROUP BY 1,2;" 2>/dev/null
+
+done
+
+echo ":::::::::::::::::::END DAILY_SUMMARY::::::::::::::::::"
+############################################################Slab rate#############################################
+monthpart1=$(date --date="-2 days" +%Y%m | awk '{print "MONTH_"int($0)}')
+
+mysql -h172.19.4.103 -uroot -pp*E9@r#Xnh nexg_hunt -vvv -e "
+UPDATE RATE_SLAB C,(SELECT CUSTOMER_CODE,CASE WHEN A.USER_NAME LIKE '%PSU%' THEN 'PSU' ELSE SERVICE_TYPE_NEW END AS SERVICE_TYPE_NEW,
+SUM(SUBMITION) AS SUBMITION,SUM(DELIVERED) AS DELIVERED FROM (SELECT DISTINCT CUSTOMER_CODE,USER_NAME,SERVICE_TYPE,
+CASE WHEN SERVICE_TYPE='Government' THEN 'GOVT' ELSE 'NORMAL' END AS SERVICE_TYPE_NEW
+FROM nexg_hunt.CRM_RATE_MST) A, sms_cdrs.DAILY_SUMMARY PARTITION("$monthpart1") B
+WHERE A.USER_NAME=B.USER_NAME GROUP BY 1,2) D
+SET C.SUBMITION=D.SUBMITION,C.DELIVERED=D.DELIVERED WHERE C.CUSTOMER_CODE=D.CUSTOMER_CODE AND C.TYPE=D.SERVICE_TYPE_NEW;
+
+UPDATE SUBSCRIPTION_MST A, RATE_SLAB B 
+SET A.CUSTOMER_BASE_RATE=B.CUSTOMER_BASE_RATE,A.DLT_RATE=B.DLT_RATE
+WHERE A.CUSTOMER_CODE=B.CUSTOMER_CODE AND B.SLAB=0 AND
+(CASE WHEN A.USER_NAME LIKE '%PSU%' THEN 'PSU' ELSE (CASE WHEN A.SERVICE_TYPE='Government' THEN 'GOVT' ELSE 'NORMAL' END) END)=B.TYPE;
+
+UPDATE SUBSCRIPTION_MST A,
+(SELECT * FROM RATE_SLAB WHERE ID IN(SELECT ID FROM (SELECT CUSTOMER_CODE,MAX(ID) AS ID,MAX(CASE WHEN DLT_RATE=0 THEN DELIVERED ELSE SUBMITION END) AS CNT,MAX(SLAB)
+FROM RATE_SLAB WHERE SLAB!=0 AND (CASE WHEN DLT_RATE=0 THEN DELIVERED ELSE SUBMITION END) >=SLAB AND DATE(INSERT_DATE) <=SUBDATE(CURRENT_DATE(),0)
+GROUP BY 1) A)) B SET A.CUSTOMER_BASE_RATE=B.CUSTOMER_BASE_RATE,A.DLT_RATE=B.DLT_RATE WHERE A.CUSTOMER_CODE=B.CUSTOMER_CODE AND
+(CASE WHEN A.USER_NAME LIKE '%PSU%' THEN 'PSU' ELSE (CASE WHEN A.SERVICE_TYPE='Government' THEN 'GOVT' ELSE 'NORMAL' END) END)=B.TYPE;" 2>/dev/null
+
+echo ":::::::::::::::::::END Slab rate::::::::::::::::::"
+############################################################EMAILS################################################
+sh /data01/shfiles/ra_reports/account_manager_report/account_manager.sh
+echo ":::::::::::::::::::END EMAILS account_manager::::::::::::::::::"
+
+sh /data01/shfiles/ra_reports/sms_summary/sms_summary.sh
+echo ":::::::::::::::::::END EMAILS sms_summary::::::::::::::::::"
+
+sh /data01/shfiles/ra_reports/credit_limit/credit_limit.sh
+echo ":::::::::::::::::::END EMAILS credit_limit::::::::::::::::::"
+
+sh /data01/shfiles/ra_reports/client_summary/client.sh
+#echo ":::::::::::::::::::END EMAILS client::::::::::::::::::"
+############################################################BILLING_SUMMARY################################################
+for i in `seq 5 -1 1`
+do
+datepart1=$(date --date="-$i days" +%Y%m%d | awk '{print "DATE_"int($0)}')
+echo "BILLING_SUMMARY "$datepart1
+
+mysql -h172.19.4.103 -uroot -pp*E9@r#Xnh sms_cdrs -vvv -e "
+ALTER TABLE BILLING_SUMMARY TRUNCATE PARTITION $datepart1;
+
+INSERT INTO BILLING_SUMMARY (EVENT_DATE,USER_NAME,CLI,OPERATOR,SMSC_ID,SUBMITION,DELIVERED,FAILED,PLATFORM)
+SELECT EVENT_DATE,UPPER(IFNULL(NULLIF(CHILD_USER_NAME,''),'NEXGCP1')) AS USER_NAME,UPPER(SENDER_ID) AS CLI,UPPER(OPERATOR) AS OPERATOR,
+IFNULL(NULLIF(GATEWAY_DATA,''),0) AS SMSC_ID,SUM(TOTAL_PART_OF_SMS) AS SUBMITION,
+SUM(CASE WHEN CRM_ID='5' THEN TOTAL_PART_OF_SMS ELSE 0 END) AS DELIVERED,
+SUM(CASE WHEN CRM_ID!='5' THEN TOTAL_PART_OF_SMS ELSE 0 END) AS FAILED,'INFOBIP' AS PLATFORM
+FROM INFOBIP_CDRS PARTITION("$datepart1") GROUP BY 1,2,3,4,5;
+
+INSERT INTO BILLING_SUMMARY (EVENT_DATE,USER_NAME,CLI,OPERATOR,SMSC_ID,SMSC_NAME,SUBMITION,DELIVERED,FAILED,PLATFORM)
+SELECT EVENT_DATE,UPPER(CHILD_USER_NAME) AS USER_NAME,UPPER(SENDER_ID) AS CLI,UPPER(OPERATOR) AS OPERATOR,
+(CASE WHEN SMSC_USER_NAME='NULL' THEN '0' ELSE SMSC_USER_NAME END) AS SMSC_ID,SMSC,SUM(PARTS) AS SUBMITION,
+SUM(CASE WHEN DESCRIPTION='DELIVRD' THEN PARTS ELSE 0 END) AS DELIVERED,
+SUM(CASE WHEN DESCRIPTION!='DELIVRD' THEN PARTS ELSE 0 END) AS FAILED,'NEXG' AS PLATFORM
+FROM NEXG_CDRS PARTITION("$datepart1") GROUP BY 1,2,3,4,5,6;
+
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") A, CRM_RATE_MST B SET A.SMS_TYPE=B.SERVICE_TYPE WHERE A.USER_NAME=B.USER_NAME AND B.SERVICE_TYPE='Government';
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") SET OPERATOR='UNKNOWN' WHERE OPERATOR IS NULL;
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") SET OPERATOR='UNKNOWN' WHERE OPERATOR='India';
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") SET OPERATOR='BSNL' WHERE OPERATOR='MTNL';
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") SET OPERATOR='VODA_IDEA' WHERE OPERATOR IN('VODAFONE','IDEA');
+
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") A, SMSC_ID_MST B SET A.SMSC_NAME=B.SMSC_NAME WHERE A.SMSC_ID=B.SMSC_ID AND A.PLATFORM=B.PLATFORM;
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") A, SMSC_ID_MST B SET A.SMSC_NAME=B.SMSC_NAME WHERE A.SMSC_ID=B.USER_NAME AND A.PLATFORM=B.PLATFORM;
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") SET SMS_TYPE=(CASE WHEN OPERATOR=SMSC_NAME THEN 'ONNET' ELSE 'OFFNET' END) WHERE SMS_TYPE='0';
+UPDATE BILLING_SUMMARY PARTITION("$datepart1") SET SMS_TYPE=(CASE WHEN OPERATOR=SMSC_NAME THEN 'GOVT_ONNET' ELSE 'GOVT_OFFNET' END) WHERE SMS_TYPE='Government';" 2>/dev/null
+
+done
+
+echo ":::::::::::::::::::END BILLING_SUMMARY::::::::::::::::::"
+############################################################smsc_id_report################################################
+/data01/shfiles/ra_reports/smsc_id_report/smsc_id_report.sh
+echo ":::::::::::::::::::END smsc_id_report::::::::::::::::::"
+############################################################ERROR_CODE_SUMMARY################################################
+for i in `seq 5 -1 1`
+do
+datepart1=$(date --date="-$i days" +%Y%m%d | awk '{print "DATE_"int($0)}')
+echo "ERROR_CODE_SUMMARY "$datepart1
+
+mysql -h172.19.4.103 -uroot -pp*E9@r#Xnh sms_cdrs -vvv -e "
+UPDATE CDRS_TEXT PARTITION("$datepart1") SET ERROR_CODE_ID='9998',ERROR_CODE_DESCRIPTION='REJECTD' WHERE ERROR_CODE_ID='0' AND SMSC_ID='' AND PLATFORM='INFOBIP';
+
+ALTER TABLE ERROR_CODE_SUMMARY TRUNCATE PARTITION $datepart1;
+
+INSERT INTO ERROR_CODE_SUMMARY (EVENT_DATE,USER_NAME,SMSC_ID,ERROR_CODE_ID,SMSC_STATUS_CODE,ERROR_DESCRIPTION,PLATFORM,CNT)
+SELECT cdt.EVENT_DATE,UPPER(cdt.CHILD_USER_NAME) AS USER_NAME,CASE WHEN cdt.SMSC_ID='' THEN '0' ELSE cdt.SMSC_ID END AS SMSC_ID,cdt.ERROR_CODE_ID, cdt.SMSC_ERROR_CODE,(CASE WHEN sce.errorcode_short_desc IS NOT NULL THEN sce.errorcode_short_desc ELSE cdt.ERROR_CODE_DESCRIPTION END) AS ERROR_DESCRIPTION,cdt.PLATFORM,SUM(cdt.PARTS) AS CNT FROM CDRS_TEXT PARTITION("$datepart1") cdt LEFT JOIN sms_error_code sce ON cdt.ERROR_CODE_ID = sce.error_code WHERE cdt.ERROR_CODE_ID NOT IN ('0','000') AND cdt.CHILD_USER_NAME != '' GROUP BY 1,2,3,4,5,6;
+
+UPDATE ERROR_CODE_SUMMARY PARTITION("$datepart1") A, SMSC_ID_MST B SET A.SMSC_NAME=B.SMSC_NAME WHERE A.SMSC_ID=B.SMSC_ID AND A.PLATFORM=B.PLATFORM AND A.SMSC_NAME IS NULL;" 2>/dev/null
+
+done
+
+echo ":::::::::::::::::::END ERROR_CODE_SUMMARY::::::::::::::::::"
+############################################################HEADER_REPORT################################################
+for i in `seq 5 -1 1`
+do
+datepart1=$(date --date="-$i days" +%Y%m%d | awk '{print "DATE_"int($0)}')
+echo "HEADER_REPORT "$datepart1
+
+mysql -h172.19.4.103 -uroot -pp*E9@r#Xnh sms_cdrs -vvv -e "
+ALTER TABLE HEADER_REPORT TRUNCATE PARTITION $datepart1; 
+
+INSERT INTO HEADER_REPORT (EVENT_DATE,SENDER_ID,USER_NAME,DLT_PE_ID,DLT_CT_ID,SUBMITION,DELIVERED,FAILED,PLATFORM)
+SELECT EVENT_DATE,UPPER(SENDER_ID) AS SENDER_ID,UPPER(IFNULL(NULLIF(CHILD_USER_NAME,''),'NEXGCP1')) AS USER_NAME,DLT_PE_ID,DLT_CT_ID,
+SUM(PARTS) AS SUBMITION,SUM(CASE WHEN ERROR_CODE_ID IN('0','000') THEN PARTS ELSE 0 END) AS DELIVERED,
+SUM(CASE WHEN ERROR_CODE_ID NOT IN('0','000') THEN PARTS ELSE 0 END) AS FAILED,PLATFORM
+FROM CDRS_TEXT PARTITION("$datepart1") GROUP BY 1,2,3,4,5;" 2>/dev/null
+
+done
+
+echo ":::::::::::::::::::END HEADER_REPORT::::::::::::::::::"
+
+mysql -sN -h172.19.4.103 -uroot -pp*E9@r#Xnh sms_cdrs -e "SELECT * FROM DAILY_SUMMARY WHERE EVENT_DATE >=SUBDATE(CURDATE(),5) AND PLATFORM='NEXG'" 2>/dev/null | sed 's/\t/|/g;' >${path1}/CPASS_DAILY_SUMMARY.txt
+
+find ${path1}/CPASS_DAILY_SUMMARY.txt -type f -size 0 -exec rm -rvf {} \;
+
+if [ -f ${path1}/CPASS_DAILY_SUMMARY.txt ]
+then
+mysql -h172.19.8.163 -uroot -p'Vp$9~ioKy6t^8&e' nexgmis --local-infile -vvv -w -e "LOAD DATA local INFILE 'CPASS_DAILY_SUMMARY.txt' INTO TABLE DAILY_SUMMARY
+FIELDS TERMINATED BY '|' LINES TERMINATED BY '\n'
+(EVENT_DATE,USER_NAME,SUBMITION,DELIVERED,FAILED,PLATFORM,INSERT_DATE);" 2>/dev/null
+fi
+
+echo ":::::::::::::::::::END CPASS_DAILY_SUMMARY::::::::::::::::::"
+
+echo ""
+end1=$(date)
+echo $end1 EndDateTime
+timediff1=$(printf "%s\n" $(( $(date -d "$end1" "+%s") - $(date -d "$satrt1" "+%s") )))
+echo $timediff1 Sec
+echo ""

@@ -1,0 +1,18 @@
+Wed Oct 16 04:00:01 IST 2024 StartDateTime
+
+DATE_20241014|Server 103 10246564 |Server 162 10246564
+--------------
+ALTER TABLE sent_sms DROP PARTITION DATE_20241014
+--------------
+
+Query OK, 0 rows affected (4 min 48.87 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Bye
+Mail Sent start Successfully..... 
+Drop Partition 16-Oct-24
+Mail Sent end Successfully..... 
+
+Wed Oct 16 04:05:10 IST 2024 EndDateTime
+309 Sec
+

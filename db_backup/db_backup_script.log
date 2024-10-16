@@ -1,0 +1,37 @@
+Wed Oct 16 12:00:01 IST 2024 StartDateTime
+
+removed '/backup/database/nexg_hunt/20241008_120001_nexg_hunt.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_BILLING_SUMMARY.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_CRM_RATE_MST_copy.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_DAILY_SUMMARY.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_ERROR_CODE_SUMMARY.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_GOVT_CLI.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_HEADER_REPORT.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_LEVEL.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_PAYOUT_MST.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_sms_cdrs.sql'
+removed '/backup/database/sms_cdrs/20241008_120001_SMSC_ID_MST.sql'
+removed '/backup/database/stitching/20241008_120001_stitching.sql'
+removed '/data01/mysql_files/BILLING_MARGIN_2024_10_08_07_36_37_832930.csv'
+removed '/data01/mysql_files/CDRS_TEXT_2024_10_08_09_16_07_50451.csv'
+removed '/data01/mysql_files/CDRS_TEXT_2024_10_08_10_40_47_325716.csv'
+removed '/data01/mysql_files/CDRS_TEXT_2024_10_08_10_42_17_186905.csv'
+removed '/data01/mysql_files/CDRS_TEXT_2024_10_08_19_01_46_582064.csv'
+removed '/data01/mysql_files/CDRS_TEXT_2024_10_08_20_03_18_915769.csv'
+removed '/data01/mysql_files/DETAILS_SUMMARY_2024_10_08_07_02_39_307418.csv'
+removed '/data01/mysql_files/ERROR_CODE_SUMMARY_2024_10_08_06_57_03_225818.csv'
+removed '/data01/mysql_files/ERROR_CODE_SUMMARY_2024_10_08_06_59_49_982899.csv'
+removed '/data01/mysql_files/ERROR_CODE_SUMMARY_2024_10_08_12_54_13_875091.csv'
+removed '/data01/mysql_files/ERROR_CODE_SUMMARY_2024_10_08_18_34_10_909886.csv'
+removed '/data01/mysql_files/HEADER_WISE_REPORT_2024_10_08_10_26_30_892544.csv'
+--------------
+DELETE FROM REPORTS_DASHBOARD WHERE EVENT_DATE < SUBDATE(CURRENT_DATE(),7)
+--------------
+
+Query OK, 12 rows affected (0.00 sec)
+
+Bye
+
+Wed Oct 16 12:03:02 IST 2024 EndDateTime
+181 Sec
+
