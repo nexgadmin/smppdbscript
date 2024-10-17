@@ -1,0 +1,488 @@
+CREATE TABLE `CDR` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `sender` varchar(64) DEFAULT NULL,
+  `receiver` varchar(64) DEFAULT NULL,
+  `dlr` varchar(160) DEFAULT NULL,
+  `err_code` varchar(10) DEFAULT NULL,
+  `msgid` varchar(64) DEFAULT NULL,
+  `dlrtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4111691 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+ CREATE TABLE `dlr` (
+  `smsc` varchar(40) DEFAULT NULL,
+  `ts` varchar(40) DEFAULT NULL,
+  `source` varchar(40) DEFAULT NULL,
+  `service` varchar(40) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `mask` int DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `boxc` varchar(40) DEFAULT NULL,
+  `destination` varchar(40) DEFAULT NULL,
+  `curts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  KEY `smscts` (`smsc`,`ts`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `http_dlt` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `header` varchar(255) NOT NULL,
+  `peid` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `template` text NOT NULL,
+  `userId` int NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `http_sms` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `header` varchar(50) DEFAULT 'NA',
+  `msisdn` varchar(50) DEFAULT 'NA',
+  `peid` varchar(50) DEFAULT 'NA',
+  `contentid` varchar(50) DEFAULT 'NA',
+  `campaign` varchar(50) DEFAULT 'NA',
+  `account` varchar(50) DEFAULT 'NA',
+  `content` text,
+  `created_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `scheduled_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `paused` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `send_sms` (
+  `sql_id` bigint NOT NULL AUTO_INCREMENT,
+  `momt` enum('MO','MT') DEFAULT NULL,
+  `sender` varchar(20) DEFAULT NULL,
+  `receiver` varchar(20) DEFAULT NULL,
+  `udhdata` blob,
+  `msgdata` text,
+  `time` bigint DEFAULT NULL,
+  `smsc_id` varchar(255) DEFAULT NULL,
+  `service` varchar(255) DEFAULT NULL,
+  `account` varchar(255) DEFAULT NULL,
+  `id` bigint DEFAULT NULL,
+  `sms_type` bigint DEFAULT NULL,
+  `mclass` bigint DEFAULT NULL,
+  `mwi` bigint DEFAULT NULL,
+  `coding` bigint DEFAULT NULL,
+  `compress` bigint DEFAULT NULL,
+  `validity` bigint DEFAULT NULL,
+  `deferred` bigint DEFAULT NULL,
+  `dlr_mask` bigint DEFAULT NULL,
+  `dlr_url` varchar(255) DEFAULT NULL,
+  `pid` bigint DEFAULT NULL,
+  `alt_dcs` bigint DEFAULT NULL,
+  `rpi` bigint DEFAULT NULL,
+  `charset` varchar(255) DEFAULT NULL,
+  `boxc_id` varchar(255) DEFAULT NULL,
+  `binfo` varchar(255) DEFAULT NULL,
+  `meta_data` text,
+  `priority` bigint DEFAULT NULL,
+  `foreign_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`sql_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2767557 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `send_sms_169` (
+  `sql_id` bigint NOT NULL AUTO_INCREMENT,
+  `momt` enum('MO','MT') DEFAULT NULL,
+  `sender` varchar(20) DEFAULT NULL,
+  `receiver` varchar(20) DEFAULT NULL,
+  `udhdata` blob,
+  `msgdata` text,
+  `time` bigint DEFAULT NULL,
+  `smsc_id` varchar(255) DEFAULT NULL,
+  `service` varchar(255) DEFAULT NULL,
+  `account` varchar(255) DEFAULT NULL,
+  `id` bigint DEFAULT NULL,
+  `sms_type` bigint DEFAULT NULL,
+  `mclass` bigint DEFAULT NULL,
+  `mwi` bigint DEFAULT NULL,
+  `coding` bigint DEFAULT NULL,
+  `compress` bigint DEFAULT NULL,
+  `validity` bigint DEFAULT NULL,
+  `deferred` bigint DEFAULT NULL,
+  `dlr_mask` bigint DEFAULT NULL,
+  `dlr_url` varchar(255) DEFAULT NULL,
+  `pid` bigint DEFAULT NULL,
+  `alt_dcs` bigint DEFAULT NULL,
+  `rpi` bigint DEFAULT NULL,
+  `charset` varchar(255) DEFAULT NULL,
+  `boxc_id` varchar(255) DEFAULT NULL,
+  `binfo` varchar(255) DEFAULT NULL,
+  `meta_data` text,
+  `priority` bigint DEFAULT NULL,
+  `foreign_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`sql_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `sent_sms` (
+  `sql_id` bigint NOT NULL AUTO_INCREMENT,
+  `momt` enum('MO','MT','DLR') DEFAULT NULL,
+  `sender` varchar(20) DEFAULT NULL,
+  `receiver` varchar(20) DEFAULT NULL,
+  `udhdata` blob,
+  `msgdata` text,
+  `time` bigint DEFAULT NULL,
+  `smsc_id` varchar(255) DEFAULT NULL,
+  `service` varchar(255) DEFAULT NULL,
+  `account` varchar(255) DEFAULT NULL,
+  `id` bigint DEFAULT NULL,
+  `sms_type` bigint DEFAULT NULL,
+  `mclass` bigint DEFAULT NULL,
+  `mwi` bigint DEFAULT NULL,
+  `coding` bigint DEFAULT NULL,
+  `compress` bigint DEFAULT NULL,
+  `validity` bigint DEFAULT NULL,
+  `deferred` bigint DEFAULT NULL,
+  `dlr_mask` bigint DEFAULT NULL,
+  `dlr_url` varchar(255) DEFAULT NULL,
+  `pid` bigint DEFAULT NULL,
+  `alt_dcs` bigint DEFAULT NULL,
+  `rpi` bigint DEFAULT NULL,
+  `charset` varchar(255) DEFAULT NULL,
+  `boxc_id` varchar(255) DEFAULT NULL,
+  `binfo` varchar(255) DEFAULT NULL,
+  `meta_data` text,
+  `priority` bigint DEFAULT NULL,
+  `foreign_id` varchar(255) DEFAULT NULL,
+  `event_date` date GENERATED ALWAYS AS (cast(from_unixtime(`time`) as date)) STORED NOT NULL,
+  `date_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`sql_id`,`event_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=5529761 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_blacklist_receiver` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `account` varchar(16) NOT NULL DEFAULT 'ALL',
+  `receiver` varchar(16) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `receiver` (`receiver`)
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_blacklist_sender` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `account` varchar(16) NOT NULL DEFAULT 'ALL',
+  `sender` varchar(16) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `sender` (`sender`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_dlr_err_mapping` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `smsc` varchar(50) DEFAULT NULL,
+  `actual_dlr_err` varchar(5) NOT NULL,
+  `update_dlr_err` varchar(5) DEFAULT NULL,
+  `description` varchar(100) DEFAULT NULL,
+  `creation_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `actual_dlr_err_index` (`actual_dlr_err`,`smsc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_dlr_repush` (
+  `global_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `sender` text,
+  `receiver` text,
+  `udhdata` text,
+  `msgdata` text,
+  `time` bigint NOT NULL,
+  `smsc_id` text,
+  `smsc_number` text,
+  `foreign_id` text,
+  `service` text,
+  `account` text,
+  `id` varchar(128) DEFAULT NULL,
+  `sms_type` bigint NOT NULL,
+  `mclass` bigint NOT NULL,
+  `mwi` bigint NOT NULL,
+  `coding` bigint NOT NULL,
+  `compress` bigint NOT NULL,
+  `validity` bigint NOT NULL,
+  `deferred` bigint NOT NULL,
+  `dlr_mask` bigint NOT NULL,
+  `dlr_url` text,
+  `pid` bigint NOT NULL,
+  `alt_dcs` bigint NOT NULL,
+  `rpi` bigint NOT NULL,
+  `charset` text,
+  `boxc_id` text,
+  `binfo` text,
+  `msg_left` bigint NOT NULL,
+  `priority` bigint NOT NULL,
+  `resend_try` bigint NOT NULL,
+  `resend_time` bigint NOT NULL,
+  `meta_data` text,
+  PRIMARY KEY (`global_id`),
+  KEY `service` (`service`(16)),
+  KEY `sms_type` (`sms_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_dlt` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sender` varchar(25) NOT NULL,
+  `peid` varchar(25) DEFAULT NULL,
+  `content_id` varchar(25) DEFAULT NULL,
+  `template` varchar(320) DEFAULT NULL,
+  `creation_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dlt` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_queued_pdu` (
+  `global_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `system_id` varchar(64) NOT NULL,
+  `time` bigint DEFAULT NULL,
+  `pdu` blob,
+  PRIMARY KEY (`global_id`),
+  KEY `system_id` (`system_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_reroute` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(16) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `keyword` (`keyword`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_role` (
+  `id` int NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `status` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_route` (
+  `route_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `direction` int NOT NULL,
+  `regex` text,
+  `cost` double DEFAULT NULL,
+  `system_id` varchar(64) DEFAULT NULL,
+  `smsc_id` varchar(64) DEFAULT NULL,
+  `tps` double DEFAULT NULL,
+  `percent` double DEFAULT NULL,
+  `source_regex` text,
+  `priority` int DEFAULT '0',
+  PRIMARY KEY (`route_id`),
+  KEY `direction` (`direction`),
+  KEY `system_id` (`system_id`),
+  KEY `smsc_id` (`smsc_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_smsc` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `smsc-id` varchar(20) NOT NULL,
+  `alt-charset` varchar(20) NOT NULL DEFAULT 'UTF-8',
+  `transceiver-mode` varchar(20) NOT NULL DEFAULT 'true',
+  `host` varchar(20) NOT NULL,
+  `port` int NOT NULL DEFAULT '2775',
+  `smsc-username` varchar(20) NOT NULL,
+  `smsc-password` varchar(20) NOT NULL,
+  `system-type` varchar(20) NOT NULL DEFAULT 'SMPP',
+  `source-addr-ton` int NOT NULL DEFAULT '1',
+  `source-addr-npi` int NOT NULL DEFAULT '1',
+  `dest-addr-ton` int NOT NULL DEFAULT '1',
+  `dest-addr-npi` int NOT NULL DEFAULT '1',
+  `throughput` int NOT NULL DEFAULT '1',
+  `instances` int NOT NULL DEFAULT '1',
+  `status` varchar(10) DEFAULT 'active',
+  `insert_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `smsc-id` (`smsc-id`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_smsc_copy` (
+  `id` int NOT NULL DEFAULT '0',
+  `smsc-id` varchar(20) NOT NULL,
+  `alt-charset` varchar(20) NOT NULL DEFAULT 'UTF-8',
+  `transceiver-mode` varchar(20) NOT NULL DEFAULT 'true',
+  `host` varchar(20) NOT NULL,
+  `port` int NOT NULL DEFAULT '2775',
+  `smsc-username` varchar(20) NOT NULL,
+  `smsc-password` varchar(20) NOT NULL,
+  `system-type` varchar(20) NOT NULL DEFAULT 'SMPP',
+  `source-addr-ton` int NOT NULL DEFAULT '1',
+  `source-addr-npi` int NOT NULL DEFAULT '1',
+  `dest-addr-ton` int NOT NULL DEFAULT '1',
+  `dest-addr-npi` int NOT NULL DEFAULT '1',
+  `throughput` int NOT NULL DEFAULT '1',
+  `instances` int NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_spam` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `account` varchar(16) NOT NULL DEFAULT 'ALL',
+  `keyword` varchar(100) NOT NULL DEFAULT 'NULL',
+  `replace_word` varchar(16) NOT NULL DEFAULT 'NULL',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `keyword` (`keyword`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_store` (
+  `global_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `sender` text,
+  `receiver` text,
+  `udhdata` text,
+  `msgdata` text,
+  `time` bigint NOT NULL,
+  `smsc_id` text,
+  `smsc_number` text,
+  `foreign_id` text,
+  `service` text,
+  `account` text,
+  `id` varchar(128) DEFAULT NULL,
+  `sms_type` bigint NOT NULL,
+  `mclass` bigint NOT NULL,
+  `mwi` bigint NOT NULL,
+  `coding` bigint NOT NULL,
+  `compress` bigint NOT NULL,
+  `validity` bigint NOT NULL,
+  `deferred` bigint NOT NULL,
+  `dlr_mask` bigint NOT NULL,
+  `dlr_url` text,
+  `pid` bigint NOT NULL,
+  `alt_dcs` bigint NOT NULL,
+  `rpi` bigint NOT NULL,
+  `charset` text,
+  `boxc_id` text,
+  `binfo` text,
+  `msg_left` bigint NOT NULL,
+  `priority` bigint NOT NULL,
+  `resend_try` bigint NOT NULL,
+  `resend_time` bigint NOT NULL,
+  `meta_data` text,
+  PRIMARY KEY (`global_id`),
+  KEY `service` (`service`(16)),
+  KEY `sms_type` (`sms_type`)
+) ENGINE=InnoDB AUTO_INCREMENT=4111686 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_transactions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `system_id` varchar(15) NOT NULL,
+  `amount` double(10,2) DEFAULT '0.00',
+  `transaction_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_user` (
+  `system_id` varchar(15) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `throughput` double(10,5) NOT NULL DEFAULT '0.00000',
+  `default_smsc` varchar(64) DEFAULT NULL,
+  `default_cost` double NOT NULL,
+  `enable_prepaid_billing` int unsigned NOT NULL DEFAULT '0',
+  `credit` double NOT NULL DEFAULT '0',
+  `callback_url` varchar(255) DEFAULT '',
+  `callback_method` enum('GET','POST') DEFAULT 'GET',
+  `callback_body` varchar(255) DEFAULT NULL,
+  `simulate` tinyint(1) NOT NULL DEFAULT '0',
+  `simulate_deliver_every` int unsigned NOT NULL,
+  `simulate_permanent_failure_every` int unsigned NOT NULL,
+  `simulate_temporary_failure_every` int unsigned NOT NULL,
+  `simulate_mo_every` int unsigned NOT NULL,
+  `max_binds` int unsigned NOT NULL DEFAULT '0',
+  `connect_allow_ip` text,
+  `dlt` varchar(5) NOT NULL DEFAULT '0',
+  `spam` varchar(8) NOT NULL DEFAULT '00000000',
+  `reroute` varchar(16) NOT NULL DEFAULT '0',
+  `coordinator` varchar(20) NOT NULL DEFAULT '0',
+  `user` varchar(20) DEFAULT NULL,
+  `parent` varchar(20) DEFAULT NULL,
+  `hlr_lookup` varchar(10) NOT NULL DEFAULT '0',
+  `smpp2` varchar(64) DEFAULT NULL,
+  `apikey` varchar(64) DEFAULT NULL,
+  `passtxt` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`system_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `designation` varchar(100) NOT NULL,
+  `role` int NOT NULL,
+  `is_status` int NOT NULL DEFAULT '1' COMMENT '0=>Deactive,1=>Active',
+  `is_deleted` int NOT NULL DEFAULT '0' COMMENT '0=>Not Deleted,1=>Deleted',
+  `created_date` datetime NOT NULL,
+  `coordinator` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_users_mapping` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `login_user_id` int NOT NULL,
+  `system_user_id` varchar(255) NOT NULL,
+  `status` int NOT NULL,
+  `created_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `smpp_version` (
+  `component` varchar(54) NOT NULL,
+  `version` int unsigned NOT NULL,
+  PRIMARY KEY (`component`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `sms_summary` (
+  `account` varchar(64) NOT NULL,
+  `submit_date` date NOT NULL,
+  `smsc` varchar(64) NOT NULL,
+  `submit_count` bigint DEFAULT '0',
+  `dlr_count` bigint DEFAULT '0',
+  `status_delivered` bigint DEFAULT '0',
+  `status_failed` int DEFAULT '0',
+  `status_pending` int DEFAULT '0',
+  `status_nack` int DEFAULT '0',
+  PRIMARY KEY (`account`,`submit_date`,`smsc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `sms_summary_campaign` (
+  `account` varchar(64) NOT NULL,
+  `campaign` varchar(64) NOT NULL,
+  `submit_count` bigint DEFAULT '0',
+  `dlr_count` bigint DEFAULT '0',
+  `status_delivered` bigint DEFAULT '0',
+  `status_failed` int DEFAULT '0',
+  `status_pending` int DEFAULT '0',
+  `status_nack` int DEFAULT '0',
+  `submit_hour` date NOT NULL,
+  PRIMARY KEY (`account`,`campaign`,`submit_hour`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `sms_summary_error` (
+  `account` varchar(64) NOT NULL,
+  `error` varchar(64) NOT NULL,
+  `count` bigint DEFAULT '0',
+  `submit_hour` date NOT NULL,
+  PRIMARY KEY (`account`,`error`,`submit_hour`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `sms_summary_header` (
+  `account` varchar(64) NOT NULL,
+  `header` varchar(64) NOT NULL,
+  `submit_count` bigint DEFAULT '0',
+  `dlr_count` bigint DEFAULT '0',
+  `status_delivered` bigint DEFAULT '0',
+  `status_failed` int DEFAULT '0',
+  `status_pending` int DEFAULT '0',
+  `status_nack` int DEFAULT '0',
+  `submit_hour` date NOT NULL,
+  PRIMARY KEY (`account`,`header`,`submit_hour`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `sms_summary_smsc` (
+  `account` varchar(64) NOT NULL,
+  `smsc` varchar(64) NOT NULL,
+  `submit_count` bigint DEFAULT '0',
+  `dlr_count` bigint DEFAULT '0',
+  `status_delivered` bigint DEFAULT '0',
+  `status_failed` int DEFAULT '0',
+  `status_pending` int DEFAULT '0',
+  `status_nack` int DEFAULT '0',
+  `submit_hour` date NOT NULL,
+  PRIMARY KEY (`account`,`smsc`,`submit_hour`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
