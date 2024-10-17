@@ -1,0 +1,1489 @@
+CREATE TABLE `smsdelivery` (
+  `smsdeliveryid` bigint NOT NULL AUTO_INCREMENT,
+  `smsqueueapiid` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `transactionid` varchar(64) NOT NULL,
+  `contactnumber` varchar(64) DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `messagetype` varchar(64) DEFAULT NULL,
+  `ip` varchar(64) DEFAULT NULL,
+  `header` varchar(64) DEFAULT NULL,
+  `templateid` varchar(64) DEFAULT NULL,
+  `entityid` varchar(64) DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL,
+  `campaignid` varchar(64) DEFAULT NULL,
+  `submittime` datetime DEFAULT NULL,
+  `creditrequired` int DEFAULT '0',
+  `dlrstatus` varchar(64) DEFAULT NULL,
+  `senttime` datetime DEFAULT NULL,
+  `dlrfinalstatus` varchar(64) DEFAULT NULL,
+  `dlrtime` datetime DEFAULT NULL,
+  `dlrduration` varchar(64) DEFAULT NULL,
+  `messageid` varchar(64) NOT NULL,
+  `dlrreason` varchar(1028) DEFAULT NULL,
+  `dlrerrorcode` varchar(500) DEFAULT NULL,
+  `smseid` varchar(64) DEFAULT NULL,
+  `deltasubmitduration` varchar(64) DEFAULT NULL,
+  `deltasentduration` varchar(64) DEFAULT NULL,
+  `chargeType` varchar(64) DEFAULT NULL COMMENT 'submission/delivery',
+  `delivery` decimal(4,3) DEFAULT NULL,
+  `dlt` decimal(4,3) DEFAULT NULL,
+  `parent_user_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `servicetype` varchar(100) DEFAULT NULL,
+  `shorturlId` varchar(255) DEFAULT NULL,
+  `channel` varchar(255) NOT NULL DEFAULT 'nexg',
+  `processType` varchar(64) NOT NULL DEFAULT 'simple',
+  `scmq_id` bigint DEFAULT NULL,
+  `flow_enbled` tinyint(1) DEFAULT NULL,
+  `smscid` varchar(255) DEFAULT NULL,
+  `smsc_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`smsdeliveryid`),
+  KEY `submittime` (`submittime`),
+  KEY `key_transactionid` (`transactionid`) USING BTREE,
+  KEY `key_messageid` (`messageid`) USING BTREE,
+  KEY `dlrfinalstatus` (`dlrfinalstatus`,`dlrstatus`,`user_id`) USING BTREE /*!80000 INVISIBLE */
+) ENGINE=InnoDB AUTO_INCREMENT=3458184 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `smsdlrcallback` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `smsqueueapiid` int DEFAULT NULL,
+  `user_id` bigint NOT NULL,
+  `transactionid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `contactnumber` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `messagetype` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ip` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `header` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `templateid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `entityid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `campaignid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `submittime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `creditrequired` int DEFAULT NULL,
+  `dlrstatus` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senttime` datetime DEFAULT NULL,
+  `dlrfinalstatus` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dlrtime` datetime DEFAULT NULL,
+  `dlrduration` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `messageid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dlrreason` varchar(1028) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dlrerrorcode` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `smseid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `deltasubmitduration` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `deltasentduration` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `chargeType` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `delivery` decimal(4,3) DEFAULT NULL,
+  `dlt` decimal(4,3) DEFAULT NULL,
+  `parent_user_id` bigint DEFAULT NULL,
+  `servicetype` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `shorturlId` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `cbsentstatus` tinyint NOT NULL DEFAULT '0',
+  `channel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cbdlrstatus` tinyint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `submittime` (`submittime`),
+  KEY `messageid` (`messageid`) /*!80000 INVISIBLE */,
+  KEY `transactionid` (`transactionid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2007813 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `wabatemplatedelevery` (
+  `wabatemplatedeleveryid` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `templateid` varchar(64) CHARACTER SET utf16 COLLATE utf16_croatian_ci NOT NULL,
+  `sentime` datetime DEFAULT NULL,
+  `deliveredtime` datetime DEFAULT NULL,
+  `readtime` datetime DEFAULT NULL,
+  `contactnumber` varchar(15) CHARACTER SET utf16 COLLATE utf16_croatian_ci NOT NULL,
+  `wabaapptime` datetime NOT NULL,
+  `messageid` varchar(256) CHARACTER SET utf16 COLLATE utf16_general_ci DEFAULT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `api_response` text COLLATE utf16_croatian_ci,
+  PRIMARY KEY (`wabatemplatedeleveryid`),
+  KEY `templateid` (`templateid`,`createdtime`),
+  KEY `messagesid` (`messageid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2370074 DEFAULT CHARSET=utf16 COLLATE=utf16_croatian_ci
+
+CREATE TABLE `whatsappdelivery` (
+  `whatsappdeliveryid` bigint NOT NULL AUTO_INCREMENT,
+  `whatsappqueueapiid` bigint NOT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `transactionid` varchar(64) DEFAULT NULL,
+  `contactnumber` varchar(64) DEFAULT NULL,
+  `message` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `messagetype` varchar(64) DEFAULT NULL,
+  `ip` varchar(64) DEFAULT NULL,
+  `provider` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `wabanumber` varchar(13) NOT NULL COMMENT 'from_number of customer',
+  `templateid` varchar(64) DEFAULT NULL,
+  `entityid` varchar(64) DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL,
+  `campaignid` varchar(64) DEFAULT NULL,
+  `submittime` datetime DEFAULT NULL,
+  `creditrequired` int DEFAULT '0',
+  `deductrequired` int DEFAULT NULL,
+  `messageuuid` varchar(64) DEFAULT NULL,
+  `messageid` varchar(256) DEFAULT NULL,
+  `mediapath` varchar(500) DEFAULT NULL,
+  `mediaid` varchar(500) DEFAULT NULL,
+  `buttons` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `dynamicUrl` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `filename` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'fileName incase docs',
+  `dlrstatus` varchar(64) DEFAULT NULL,
+  `senttime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dlrfinalstatus` varchar(64) DEFAULT NULL,
+  `dlrtime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dlrduration` varchar(64) DEFAULT NULL,
+  `error_title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `campaignupdated` tinyint(1) NOT NULL DEFAULT '0',
+  `scmq_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `country_code` varchar(255) NOT NULL DEFAULT 'in',
+  PRIMARY KEY (`whatsappdeliveryid`),
+  KEY `idx_whatsappdelivery_messageid` (`messageid`),
+  KEY `idx_whatsappdelivery_contactnum` (`contactnumber`,`submittime`,`user_id`) /*!80000 INVISIBLE */,
+  KEY `idx_compositeusersubmitdeduct` (`user_id`,`deductrequired`,`submittime`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2376005 DEFAULT CHARSET=latin1
+
+CREATE TABLE `credit_history` (
+  `credithistoryid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `credit` decimal(36,4) DEFAULT '0.0000',
+  `debit` decimal(36,4) DEFAULT '0.0000',
+  `recredit` decimal(36,4) DEFAULT '0.0000',
+  `balance` decimal(36,4) DEFAULT '0.0000',
+  `createdon` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime DEFAULT NULL,
+  `channel` varchar(64) DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  `updated_by` bigint DEFAULT NULL,
+  `updated_for` bigint DEFAULT NULL,
+  PRIMARY KEY (`credithistoryid`),
+  KEY `user_id` (`user_id`),
+  KEY `createdon` (`createdon`)
+) ENGINE=InnoDB AUTO_INCREMENT=3132431 DEFAULT CHARSET=latin1
+
+CREATE TABLE `WabaWebhookResponseLogs` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `reply_response` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `processed` tinyint(1) NOT NULL DEFAULT '0',
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=347523 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `wabacredithistory` (
+  `wabacredithistory_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `wabanumber` varchar(13) NOT NULL,
+  `waba_id` varchar(32) NOT NULL,
+  `template_id` varchar(64) NOT NULL,
+  `template_catagory` varchar(64) NOT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `status` varchar(32) NOT NULL DEFAULT 'active',
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`wabacredithistory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1395365 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `shorturl` (
+  `urlshortid` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `urlcode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `orignalUrl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `shortUrl` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `clicks` int NOT NULL DEFAULT '0',
+  `contactnumber` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'active',
+  PRIMARY KEY (`urlshortid`)
+) ENGINE=InnoDB AUTO_INCREMENT=437891 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+
+CREATE TABLE `ExceptionLogs` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `req` varchar(1024) NOT NULL,
+  `exception` varchar(1024) NOT NULL,
+  `createdon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=96335 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `wabatemplatelogs` (
+  `log_id` bigint NOT NULL AUTO_INCREMENT,
+  `templateid` varchar(64) NOT NULL,
+  `msgrequestid` varchar(64) NOT NULL,
+  `sent` int NOT NULL,
+  `delivered` int NOT NULL,
+  `seen` int NOT NULL,
+  `trackerjson` text NOT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=275768 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `flowmanager` (
+  `flow_id` bigint NOT NULL AUTO_INCREMENT,
+  `campaign_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `wabanumber` varchar(64) DEFAULT NULL,
+  `waba_id` bigint DEFAULT NULL,
+  `jsonflow` longtext NOT NULL,
+  `flow_name` varchar(255) NOT NULL,
+  `keyword` varchar(255) NOT NULL,
+  `transcation_id` varchar(64) NOT NULL,
+  `status` varchar(64) NOT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `channel` varchar(45) DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` bigint DEFAULT NULL,
+  `is_editable` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`flow_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=242 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+ 
+
+CREATE TABLE `whatsappmedia` (
+  `wamediaid` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `wamediakey` varchar(64) NOT NULL,
+  `sptemplateid` varchar(64) NOT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  `mediapath` varchar(500) DEFAULT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`wamediaid`)
+) ENGINE=InnoDB AUTO_INCREMENT=161579 DEFAULT CHARSET=latin1
+
+CREATE TABLE `smscountreport` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `userid` int NOT NULL,
+  `contactnumber` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
+  `templateid` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
+  `header` varchar(65) COLLATE utf8mb4_general_ci NOT NULL,
+  `transactionid` varchar(65) COLLATE utf8mb4_general_ci NOT NULL,
+  `messageid` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
+  `message` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
+  `messagetype` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `dlrstatus` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
+  `creditrequired` int NOT NULL,
+  `submittime` datetime DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `contactnumber` (`contactnumber`)
+) ENGINE=InnoDB AUTO_INCREMENT=1062 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `tempcountreportdata` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `dialogid` bigint NOT NULL,
+  `dialogname` varchar(256) NOT NULL,
+  `contactnumber` varchar(16) DEFAULT NULL,
+  `dialogtype` varchar(16) DEFAULT NULL,
+  `reply_response` varchar(512) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1162 DEFAULT CHARSET=latin1
+
+CREATE TABLE `subaccounts` (
+  `subaccountid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `firstname` varchar(64) DEFAULT NULL,
+  `lastname` varchar(64) DEFAULT NULL,
+  `emailid` varchar(64) DEFAULT NULL,
+  `mobilenumber` varchar(15) DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `password` varchar(64) DEFAULT 'Cpass@123',
+  `useraccess` varchar(64) DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`subaccountid`),
+  UNIQUE KEY `emailid` (`emailid`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1
+
+CREATE TABLE `stateprovince` (
+  `stateprovinceid` bigint NOT NULL AUTO_INCREMENT,
+  `stateprovincename` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`stateprovinceid`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1
+
+CREATE TABLE `smsshorturltracker` (
+  `urlTrackerId` bigint NOT NULL AUTO_INCREMENT,
+  `url` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `recipient` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `device_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `device_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `client_os` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `messageid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `Longitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `Latitude` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `smsdeliveryid` bigint DEFAULT NULL,
+  `urlshortid` bigint DEFAULT NULL,
+  `clientip` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updateon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`urlTrackerId`)
+) ENGINE=InnoDB AUTO_INCREMENT=11440 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+
+ CREATE TABLE `smsrateledger` (
+  `smsledger_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `submission` decimal(4,3) NOT NULL,
+  `dlt` decimal(4,3) NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`smsledger_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `smsqueueapi` (
+  `smsqueueapiid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `transactionid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `contactnumber` varchar(12) CHARACTER SET latin1 DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `messagetype` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `ip` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `header` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `templateid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `entityid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `status` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `campaignid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `submittime` datetime DEFAULT NULL,
+  `creditrequired` int DEFAULT '0',
+  `messageid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `messageuuid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `parent_user_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `servicetype` varchar(100) DEFAULT NULL,
+  `shorturlId` varchar(255) DEFAULT NULL,
+  `channel` varchar(255) NOT NULL DEFAULT 'nexg',
+  `processType` varchar(64) NOT NULL DEFAULT 'simple',
+  `scmq_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`smsqueueapiid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2019488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `wabatemplatedetails` (
+  `templatedetailsid` int NOT NULL AUTO_INCREMENT,
+  `templateid` varchar(64) NOT NULL,
+  `sent` int NOT NULL DEFAULT '0',
+  `delivered` int NOT NULL DEFAULT '0',
+  `seen` int NOT NULL DEFAULT '0',
+  `trackerjson` text,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`templatedetailsid`)
+) ENGINE=InnoDB AUTO_INCREMENT=287 DEFAULT CHARSET=latin1
+
+
+
+CREATE TABLE `templifecyclereportdata` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `dialogid` bigint NOT NULL,
+  `dialogname` varchar(256) NOT NULL,
+  `contactnumber` varchar(16) DEFAULT NULL,
+  `dialogtype` varchar(16) DEFAULT NULL,
+  `reply_response` varchar(512) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=latin1
+
+CREATE TABLE `smsc_management` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `smsc_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `smsc_password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `smsc_id` varchar(64) COLLATE utf8mb4_bin DEFAULT NULL,
+  `ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `port` int NOT NULL,
+  `system_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `character_set` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `source_addr_ton` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `dest_addr_ton` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `throughput` int NOT NULL,
+  `dest_addr_npi` int NOT NULL,
+  `status` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'active',
+  `source_addr_npi` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,
+  `transceivermode` varchar(200) COLLATE utf8mb4_bin DEFAULT NULL,
+  `instances` int DEFAULT '1',
+  `created_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+
+CREATE TABLE `sms_templates` (
+  `smstemplate_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `templatedata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `ui_templatedata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `status` varchar(16) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  `dlttemplateid` varchar(64) DEFAULT NULL,
+  `mapping` varchar(200) DEFAULT NULL,
+  `templatename` varchar(64) DEFAULT NULL,
+  `headers` varchar(512) DEFAULT NULL,
+  `service_type` varchar(256) DEFAULT NULL,
+  `dlt_status` varchar(256) DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  `parent_user_type` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`smstemplate_id`),
+  KEY `user_id` (`user_id`),
+  KEY `dlttemplateid` (`dlttemplateid`),
+  FULLTEXT KEY `templatedata` (`templatedata`)
+) ENGINE=InnoDB AUTO_INCREMENT=3446 DEFAULT CHARSET=latin1
+
+CREATE TABLE `sms_provider_mapping` (
+  `provider_mapping_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `username` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sms_provider_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smsc_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smsc_user` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `service_type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `createdon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`provider_mapping_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+
+ CREATE TABLE `sms_provider` (
+  `sms_provider_id` int NOT NULL AUTO_INCREMENT,
+  `provider_name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `channel` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smsc_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smsc_user` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `service_type` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `createdon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`sms_provider_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+
+CREATE TABLE `sms_headers` (
+  `header_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `header` varchar(64) DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  `mapping` varchar(200) DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  `parent_user_type` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`header_id`),
+  KEY `user_id` (`user_id`),
+  KEY `header` (`header`)
+) ENGINE=InnoDB AUTO_INCREMENT=1194 DEFAULT CHARSET=latin1
+
+CREATE TABLE `sms_error_code` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `error_code` varchar(256) DEFAULT NULL,
+  `error_code_description` text,
+  `errorcode_short_desc` varchar(256) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'ACTIVE',
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `errorcode_status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `smartcampaignmanager` (
+  `scmid` bigint NOT NULL AUTO_INCREMENT,
+  `scmname` varchar(256) NOT NULL,
+  `userid` bigint NOT NULL,
+  `createddate` datetime DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(32) NOT NULL,
+  `startflowmanagerid` bigint DEFAULT NULL,
+  `starttime` datetime DEFAULT NULL,
+  `scmjson` longtext,
+  `datatype` varchar(32) DEFAULT NULL,
+  `datapath` varchar(256) DEFAULT NULL,
+  `datastatus` varchar(16) DEFAULT NULL,
+  `contactlistid` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`scmid`)
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=latin1
+
+CREATE TABLE `whatsappqueueapi` (
+  `whatsappqueueapiid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `transactionid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `contactnumber` varchar(256) DEFAULT NULL,
+  `message` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `messagetype` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `ip` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `provider` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `wabanumber` varchar(12) CHARACTER SET latin1 NOT NULL COMMENT 'from_number of customer',
+  `templateid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `entityid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `status` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `campaignid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `submittime` datetime DEFAULT NULL,
+  `creditrequired` int DEFAULT '0',
+  `messageuuid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `messageid` varchar(64) CHARACTER SET latin1 DEFAULT NULL,
+  `mediapath` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `buttons` varchar(500) DEFAULT NULL,
+  `dynamicUrl` varchar(500) DEFAULT NULL,
+  `filename` varchar(500) DEFAULT NULL COMMENT 'fileName incase docs',
+  `cdn_path` text,
+  `scmq_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`whatsappqueueapiid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2295164 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `usersmscredentials` (
+  `credentialsid` int NOT NULL AUTO_INCREMENT,
+  `userid` int NOT NULL,
+  `entityid` varchar(128) DEFAULT NULL,
+  `peid` varchar(128) DEFAULT NULL,
+  `smsapikey` varchar(64) DEFAULT NULL,
+  `createddate` datetime NOT NULL,
+  `updateddate` datetime DEFAULT NULL,
+  `isdlrwebhookenable` varchar(16) DEFAULT NULL,
+  `webhookurl` text,
+  `shorturl` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`credentialsid`)
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `wabarateledger` (
+  `wabaledger_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `authentication` decimal(4,3) NOT NULL,
+  `marketing` decimal(4,3) NOT NULL,
+  `utility` decimal(4,3) NOT NULL,
+  `services` decimal(4,3) NOT NULL,
+  `platform_charges` decimal(4,3) NOT NULL,
+  `rentel` int NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`wabaledger_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `wabacampaignqueue` (
+  `campaignid` bigint NOT NULL AUTO_INCREMENT,
+  `campaignname` varchar(128) DEFAULT NULL,
+  `templateid` varchar(128) DEFAULT NULL,
+  `templatename` varchar(128) DEFAULT NULL,
+  `templatedata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `uploadtype` varchar(32) DEFAULT NULL,
+  `simpleuploadlist` varchar(32) DEFAULT NULL,
+  `contactlistid` varchar(64) DEFAULT NULL,
+  `messagetype` varchar(16) DEFAULT NULL,
+  `scheduledtime` datetime DEFAULT NULL,
+  `userid` bigint DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `wabaid` varchar(128) DEFAULT NULL,
+  `wabanumber` varchar(128) DEFAULT NULL,
+  `campaignstatus` varchar(32) DEFAULT NULL COMMENT 'new,processing,completed',
+  `dataparam` varchar(100) DEFAULT NULL,
+  `servicename` varchar(64) DEFAULT NULL,
+  `ipaddress` varchar(32) DEFAULT NULL,
+  `serviceproviderid` varchar(32) DEFAULT NULL,
+  `columnmapping` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `servicetype` varchar(64) DEFAULT NULL,
+  `campaigntype` varchar(32) NOT NULL COMMENT 'simple, flowmanager',
+  `flowmanager_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`campaignid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1730 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `wabacampaigndata` (
+  `campaigndataid` int NOT NULL AUTO_INCREMENT,
+  `campaignid` int DEFAULT NULL,
+  `contactnumber` varchar(20) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `dynamic_variables` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `createdon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `media_url` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`campaigndataid`)
+) ENGINE=InnoDB AUTO_INCREMENT=291692 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `userwabatemplatesheadersmapping` (
+  `userwabatempmappingid` bigint NOT NULL AUTO_INCREMENT,
+  `templateid` bigint NOT NULL,
+  `headerid` bigint NOT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`userwabatempmappingid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+ CREATE TABLE `userwabatemplates` (
+  `wabatemplateid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `language` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `sptemplateid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `templatedata` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `attachmentjson` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `inputjson` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `createddate` datetime DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL,
+  `templatename` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `wabaid` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `waba_status` varchar(64) DEFAULT NULL,
+  `wabacategory` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'marketing',
+  `waba_cdn_path` varchar(200) DEFAULT NULL,
+  `status_remark` varchar(255) DEFAULT NULL,
+  `header` varchar(256) DEFAULT NULL,
+  `footer` varchar(256) DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  `parent_user_type` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`wabatemplateid`),
+  KEY `user_id` (`user_id`),
+  KEY `sptemplateid` (`sptemplateid`),
+  KEY `createddate` (`createddate`)
+) ENGINE=InnoDB AUTO_INCREMENT=1502 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+ CREATE TABLE `userwabadetails` (
+  `recordid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `number` varchar(64) DEFAULT NULL,
+  `wabaid` varchar(64) DEFAULT NULL,
+  `serviceprovider` varchar(64) DEFAULT NULL,
+  `createddate` datetime DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `apikey` varchar(64) DEFAULT NULL,
+  `connectiondetails` varchar(512) DEFAULT NULL,
+  `business_id` varchar(256) DEFAULT NULL COMMENT 'should store Airtel buiness id ',
+  `auto_reply` varchar(4096) DEFAULT NULL,
+  `webhookurl` text,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`recordid`),
+  KEY `user_id` (`user_id`),
+  KEY `wabaid` (`wabaid`)
+) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=latin1
+
+CREATE TABLE `usersmstemplatesheadersmapping` (
+  `usersmstempmappingid` bigint NOT NULL AUTO_INCREMENT,
+  `templateid` bigint NOT NULL,
+  `headerid` bigint NOT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`usersmstempmappingid`)
+) ENGINE=InnoDB AUTO_INCREMENT=10540 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `wabasessionmessage` (
+  `whatsappsessionid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `messagetype` varchar(256) DEFAULT NULL COMMENT 'session, template',
+  `session_id` varchar(256) NOT NULL,
+  `requestdata` text,
+  `mediapath` varchar(256) DEFAULT NULL,
+  `conversion_type` varchar(256) NOT NULL,
+  `recipient_type` varchar(256) NOT NULL,
+  `wabanumber` varchar(32) DEFAULT NULL,
+  `contactnumber` varchar(32) DEFAULT NULL,
+  `provider` varchar(256) NOT NULL,
+  `messageid` varchar(256) DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(256) DEFAULT NULL,
+  `final_status` varchar(256) NOT NULL,
+  PRIMARY KEY (`whatsappsessionid`)
+) ENGINE=InnoDB AUTO_INCREMENT=6644 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `wabamediasave` (
+  `media_id` bigint NOT NULL AUTO_INCREMENT,
+  `media_key` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `media_value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `user_id` int NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`media_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13665 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+
+CREATE TABLE `usersmppcredentials` (
+  `usersmppcredentialsid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `smppusername` varchar(64) DEFAULT NULL,
+  `smpppassword` varchar(64) DEFAULT NULL,
+  `smppservicetype` varchar(16) DEFAULT NULL,
+  `smppipaddress` varchar(255) DEFAULT NULL,
+  `smppport` varchar(16) DEFAULT NULL,
+  `smpptps` varchar(16) DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `session` varchar(200) NOT NULL,
+  `character_set` varchar(200) NOT NULL,
+  `account_manager` varchar(200) NOT NULL,
+  `SMSC_gateway` varchar(200) NOT NULL,
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `servicename` varchar(50) DEFAULT NULL,
+  `servicetype` varchar(50) DEFAULT NULL,
+  `spam` varchar(8) NOT NULL DEFAULT '00000000',
+  `reroute` varchar(16) NOT NULL,
+  `smpp2` varchar(64) DEFAULT NULL,
+  `billingenable` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`usersmppcredentialsid`)
+) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=latin1
+
+CREATE TABLE `usercredits` (
+  `usercredit_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `channel` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `credit` int NOT NULL DEFAULT '0',
+  `currency` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'INR',
+  `chargeType` varchar(64) NOT NULL,
+  `creditjson` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL COMMENT 'active,Inactive,failed',
+  `username` varchar(45) DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  `parent_user_type` bigint DEFAULT NULL,
+  PRIMARY KEY (`usercredit_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=249 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `scmqueuedata` (
+  `scmqueuedataid` bigint NOT NULL AUTO_INCREMENT,
+  `scmid` bigint NOT NULL,
+  `flowmanagerid` bigint DEFAULT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `serviceprovider` varchar(32) DEFAULT NULL,
+  `dynamic_variables` text,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`scmqueuedataid`)
+) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=latin1
+
+CREATE TABLE `user_whitelabel` (
+  `wlabel_id` bigint NOT NULL AUTO_INCREMENT,
+  `company_name` varchar(300) DEFAULT NULL,
+  `domain` varchar(500) DEFAULT NULL,
+  `logo` varchar(500) DEFAULT NULL,
+  `whitelisting` varchar(500) DEFAULT NULL,
+  `ssllogo` varchar(500) DEFAULT NULL,
+  `apisslpath` varchar(500) DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updatedate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` varchar(45) DEFAULT NULL,
+  `apidomain` varchar(500) DEFAULT NULL,
+  `apiwhitelisting` varchar(500) DEFAULT NULL,
+  `favicon` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`wlabel_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `user_services` (
+  `userserviceid` bigint NOT NULL AUTO_INCREMENT,
+  `service_id` bigint DEFAULT NULL,
+  `allocated_to` bigint DEFAULT NULL,
+  `service_status` varchar(16) DEFAULT NULL,
+  `validity_from` datetime DEFAULT NULL,
+  `validity_to` datetime DEFAULT NULL,
+  `json_parameter` varchar(64) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  PRIMARY KEY (`userserviceid`),
+  KEY `service_id` (`service_id`),
+  KEY `allocated_to` (`allocated_to`)
+) ENGINE=InnoDB AUTO_INCREMENT=996 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `user_roles` (
+  `role_id` bigint NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(64) DEFAULT NULL,
+  `role_status` varchar(16) DEFAULT NULL,
+  `role_createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `role_updatedate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1
+
+CREATE TABLE `user_credit_history` (
+  `user_credit_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `creditcountry_id` bigint DEFAULT NULL,
+  `platform_marketing` decimal(36,4) DEFAULT NULL,
+  `platform_utility` decimal(36,4) DEFAULT NULL,
+  `platform_authentication` decimal(36,4) DEFAULT NULL,
+  `platform_service` decimal(36,4) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'Active',
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `lock_type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`user_credit_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=457 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `tempreportdata` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `dialogid` bigint NOT NULL,
+  `dialogname` varchar(256) NOT NULL,
+  `Views` bigint DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5118 DEFAULT CHARSET=latin1
+
+CREATE TABLE `cdrstatus` (
+  `cdrid` bigint NOT NULL AUTO_INCREMENT,
+  `channel` varchar(32) NOT NULL,
+  `cdrstatus` varchar(32) NOT NULL,
+  `createddate` datetime DEFAULT NULL,
+  `status` varchar(32) NOT NULL,
+  PRIMARY KEY (`cdrid`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1
+
+CREATE TABLE `flowm_cache` (
+  `flowcache_id` bigint NOT NULL AUTO_INCREMENT,
+  `flowintrection_id` bigint DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `records_json` json DEFAULT NULL,
+  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`flowcache_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=230 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+
+ CREATE TABLE `customreports` (
+  `reportid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `parameters` varchar(512) DEFAULT NULL,
+  `reportname` varchar(64) DEFAULT NULL,
+  `status` varchar(16) DEFAULT '0',
+  `createddate` datetime DEFAULT NULL,
+  PRIMARY KEY (`reportid`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `crm_accounts` (
+  `crm_id` varchar(100) DEFAULT NULL,
+  `user_uid` int DEFAULT NULL,
+  `customer_name` varchar(256) DEFAULT NULL,
+  UNIQUE KEY `crm_id_UNIQUE` (`crm_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `country_credit_master` (
+  `creditcountry_id` bigint NOT NULL AUTO_INCREMENT,
+  `market` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `currency` varchar(30) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `marketing` decimal(36,4) DEFAULT NULL,
+  `utility` decimal(36,4) DEFAULT NULL,
+  `authentication` decimal(36,4) DEFAULT NULL,
+  `service` decimal(36,4) DEFAULT NULL,
+  `status` varchar(45) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT 'Active',
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `display_order` int DEFAULT NULL,
+  PRIMARY KEY (`creditcountry_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin
+
+ CREATE TABLE `country` (
+  `countryid` bigint NOT NULL AUTO_INCREMENT,
+  `countryname` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`countryid`)
+) ENGINE=InnoDB AUTO_INCREMENT=196 DEFAULT CHARSET=latin1
+
+CREATE TABLE `city` (
+  `cityid` bigint NOT NULL AUTO_INCREMENT,
+  `cityname` varchar(64) DEFAULT NULL,
+  `stateid` bigint DEFAULT NULL,
+  PRIMARY KEY (`cityid`),
+  KEY `stateid` (`stateid`)
+) ENGINE=InnoDB AUTO_INCREMENT=344 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `chats_sessions_log` (
+  `chat_log_id` bigint NOT NULL AUTO_INCREMENT,
+  `chat_id` bigint DEFAULT NULL,
+  `session_id` varchar(256) DEFAULT NULL,
+  `user_id` bigint NOT NULL,
+  `flow_id` bigint NOT NULL,
+  `flowintrection_id` bigint NOT NULL,
+  `commentby` varchar(256) NOT NULL,
+  `commnet_contact` varchar(32) NOT NULL,
+  `text` text NOT NULL,
+  `media` varchar(256) NOT NULL,
+  `response_type` varchar(256) NOT NULL,
+  `wabanumber` varchar(64) NOT NULL,
+  `submittime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `channel` varchar(256) NOT NULL,
+  `provider` varchar(64) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`chat_log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=664 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `chats_sessions` (
+  `chat_id` bigint NOT NULL AUTO_INCREMENT,
+  `session_id` varchar(64) NOT NULL,
+  `user_id` bigint NOT NULL,
+  `flow_id` bigint NOT NULL,
+  `flowintrection_id` bigint NOT NULL,
+  `contactnumber` varchar(32) NOT NULL,
+  `requestedtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `contact_id` int NOT NULL,
+  `agent_contactnumber` varchar(32) NOT NULL,
+  `agent_session_id` varchar(256) DEFAULT NULL,
+  `wabanumber` varchar(32) NOT NULL,
+  `endtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `channel` varchar(64) NOT NULL,
+  `provider` varchar(64) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `chat_status` varchar(256) NOT NULL COMMENT 'engaged,idle',
+  `conversation` varchar(16) NOT NULL DEFAULT 'no' COMMENT 'yes,no',
+  PRIMARY KEY (`chat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `chat_session_queue` (
+  `session_queue_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `chat_id` bigint NOT NULL,
+  `flow_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `flowintrection_id` bigint NOT NULL,
+  `customer_session_id` varchar(64) NOT NULL,
+  `contact_id` int DEFAULT NULL,
+  `wabanumber` varchar(32) NOT NULL,
+  `contactnumber` varchar(32) NOT NULL,
+  `requesttime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(32) NOT NULL DEFAULT 'active',
+  `channel` varchar(64) NOT NULL,
+  `provider` varchar(64) NOT NULL,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`session_queue_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `channel_master` (
+  `channel_name` varchar(64) DEFAULT NULL,
+  `channel_status` varchar(16) DEFAULT NULL,
+  `displayno` int DEFAULT NULL,
+  KEY `channel_status` (`channel_status`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE `flowmanager_dialogs` (
+  `flow_dialog_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `flow_id` bigint NOT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `starttime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `current_dialog` varchar(32) NOT NULL,
+  `session_id` varchar(256) NOT NULL,
+  `replay_key` varchar(256) NOT NULL,
+  `reply_response` text NOT NULL,
+  `dialogtype` varchar(256) NOT NULL,
+  `flowintrection_id` bigint NOT NULL,
+  `dialogname` varchar(256) NOT NULL,
+  `status` varchar(64) NOT NULL COMMENT 'active, inactive,expired,failed',
+  `flow_status` varchar(256) NOT NULL COMMENT 'started, inprogress,completed',
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`flow_dialog_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `campaignqueue` (
+  `campaignid` bigint NOT NULL AUTO_INCREMENT,
+  `campaignname` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `templateid` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `templatedata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `header` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `uploadtype` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `simpleuploadlist` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `contactlistid` varchar(64) DEFAULT NULL,
+  `messagetype` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `scheduledtime` datetime DEFAULT NULL,
+  `jsonparam` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `userid` bigint DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `entityid` varchar(128) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `campaignstatus` varchar(16) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `dataparam` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `servicename` varchar(64) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `columnmapping` text,
+  `ipaddress` varchar(32) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `servicetype` varchar(64) DEFAULT NULL,
+  `parent_user_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `smsparams` varchar(255) DEFAULT NULL,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `load_status` int DEFAULT '1',
+  `campaigntype` varchar(256) DEFAULT NULL,
+  `flowmanager_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`campaignid`)
+) ENGINE=InnoDB AUTO_INCREMENT=981 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `campaigndata` (
+  `campaigndataid` int NOT NULL AUTO_INCREMENT,
+  `campaignid` int DEFAULT NULL,
+  `contactnumber` varchar(20) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `createdon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `dynamic_variables` varchar(500) DEFAULT NULL,
+  `media_url` varchar(500) DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`campaigndataid`),
+  KEY `campaignid` (`campaignid`,`contactnumber`)
+) ENGINE=InnoDB AUTO_INCREMENT=127559 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `blacklisted_msisdn` (
+  `msisdn_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `msdsn_contact` varchar(32) DEFAULT NULL,
+  `status` varchar(32) DEFAULT NULL,
+  `parent_userid` bigint DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`msisdn_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `activity_log` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `user_logintime` datetime DEFAULT NULL,
+  `user_logouttime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_logouttime` (`user_logouttime`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=691 DEFAULT CHARSET=latin1
+
+CREATE TABLE `accounts` (
+  `user_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_firstname` varchar(64) DEFAULT NULL,
+  `user_lastname` varchar(64) DEFAULT NULL,
+  `user_emailid` varchar(64) DEFAULT NULL,
+  `user_contact` varchar(32) DEFAULT NULL,
+  `user_profilepic` varchar(256) DEFAULT NULL,
+  `user_country` int DEFAULT NULL,
+  `user_state` varchar(100) DEFAULT NULL,
+  `user_city` varchar(100) DEFAULT NULL,
+  `user_zippincode` varchar(16) DEFAULT NULL,
+  `user_password` varchar(16) DEFAULT NULL,
+  `user_username` varchar(255) DEFAULT NULL,
+  `user_createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `user_activestatus` varchar(16) DEFAULT NULL,
+  `user_updatedate` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_address` varchar(512) DEFAULT NULL,
+  `user_apikey` varchar(64) DEFAULT NULL,
+  `user_password_updatedon` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_password_updatedby` bigint DEFAULT NULL,
+  `user_2fa` int DEFAULT NULL,
+  `billing_type` varchar(64) DEFAULT NULL,
+  `userrole` varchar(256) DEFAULT NULL,
+  `parent_user_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `whitelabel` varchar(45) DEFAULT NULL,
+  `waba_embedded_signup` varchar(1000) DEFAULT NULL,
+  `user_type` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `user_emailid` (`user_emailid`),
+  KEY `user_activestatus` (`user_activestatus`)
+) ENGINE=InnoDB AUTO_INCREMENT=362 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `account_manager` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `WabaWebhookReplyLogs` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `reply_response` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `processed` tinyint(1) NOT NULL DEFAULT '0',
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3845 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `WabaWebhookLogs` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `messageid` varchar(256) NOT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `parameters` varchar(1024) NOT NULL,
+  `webhookurl` varchar(256) NOT NULL,
+  `apiresponse` varchar(4096) NOT NULL,
+  `createdon` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1251 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `ContactList` (
+  `contactlistid` int NOT NULL AUTO_INCREMENT,
+  `contactlistname` varchar(255) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `createddate` datetime NOT NULL,
+  `updateddate` datetime DEFAULT NULL,
+  `userid` int NOT NULL,
+  PRIMARY KEY (`contactlistid`)
+) ENGINE=InnoDB AUTO_INCREMENT=174 DEFAULT CHARSET=latin1
+
+ CREATE TABLE `rcsqueueapi` (
+  `rcsqueueapiid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint DEFAULT NULL,
+  `transactionid` varchar(64) DEFAULT NULL,
+  `contactnumber` varchar(256) DEFAULT NULL,
+  `message_var` varchar(500) DEFAULT NULL,
+  `messagetype` varchar(64) DEFAULT NULL,
+  `user_ip` varchar(64) DEFAULT NULL,
+  `provider` varchar(64) DEFAULT NULL,
+  `rcs_channel` varchar(64) DEFAULT NULL,
+  `rcs_number` varchar(24) DEFAULT NULL COMMENT 'from_number provider',
+  `templateid` varchar(64) DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL,
+  `campaignid` varchar(64) DEFAULT NULL,
+  `submittime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `creditrequired` int DEFAULT '0',
+  `messageuuid` varchar(64) DEFAULT NULL,
+  `messageid` varchar(64) DEFAULT NULL,
+  `mediapath` varchar(500) DEFAULT NULL,
+  `buttons` varchar(64) DEFAULT NULL,
+  `dynamicUrl` text,
+  `scmq_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`rcsqueueapiid`)
+) ENGINE=InnoDB AUTO_INCREMENT=320 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `service_master` (
+  `service_id` bigint NOT NULL AUTO_INCREMENT,
+  `channel_name` varchar(64) DEFAULT NULL,
+  `service_name` varchar(64) DEFAULT NULL,
+  `service_status` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`service_id`),
+  KEY `channel_name` (`channel_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Contact` (
+  `contactid` int NOT NULL AUTO_INCREMENT,
+  `contactlistid` int NOT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `lastname` varchar(255) DEFAULT NULL,
+  `phone` varchar(12) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `dob` datetime DEFAULT NULL,
+  `status` varchar(16) NOT NULL,
+  `createddate` datetime NOT NULL,
+  `updateddate` datetime DEFAULT NULL,
+  PRIMARY KEY (`contactid`)
+) ENGINE=InnoDB AUTO_INCREMENT=1407 DEFAULT CHARSET=latin1
+
+CREATE TABLE `scmflowmanagertracker` (
+  `SCMtrackerid` bigint NOT NULL AUTO_INCREMENT,
+  `scmqid` bigint NOT NULL,
+  `FlowManagerId` bigint NOT NULL,
+  `scm_id` bigint DEFAULT NULL,
+  `contactnumber` varchar(32) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `serviceprovider` varchar(100) NOT NULL,
+  `ChannelType` varchar(100) NOT NULL,
+  `current_dialog` varchar(32) DEFAULT NULL,
+  `next_dialog` text,
+  `dialognname` varchar(256) DEFAULT NULL,
+  `cdrstatus` varchar(32) DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`SCMtrackerid`)
+) ENGINE=InnoDB AUTO_INCREMENT=519 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `scmflowmanagersqueue` (
+  `scmqueueid` bigint NOT NULL AUTO_INCREMENT,
+  `scmid` bigint NOT NULL,
+  `flowmanagerid` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `contactnumber` varchar(255) DEFAULT NULL,
+  `channel` varchar(255) NOT NULL,
+  `scmname` varchar(255) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `submitcount` int DEFAULT NULL,
+  `cdrstatus` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `ChannelType` varchar(100) DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`scmqueueid`)
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `scmdeliverytracker` (
+  `SCMtrackerid` bigint NOT NULL,
+  `scmqid` bigint NOT NULL,
+  `FlowManagerId` bigint NOT NULL,
+  `contactnumber` varchar(32) NOT NULL,
+  `status` varchar(32) NOT NULL,
+  `serviceprovider` varchar(100) NOT NULL,
+  `ChannelType` varchar(100) NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `scmdatacdr` (
+  `SCMCDRid` bigint NOT NULL AUTO_INCREMENT,
+  `scmqid` bigint NOT NULL,
+  `FlowManagerId` bigint NOT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `contactnumber` varchar(32) NOT NULL,
+  `scm_type` varchar(256) DEFAULT NULL COMMENT 'cdr,intent',
+  `CDRstatus` varchar(32) NOT NULL,
+  `status_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ErrorCode` varchar(100) DEFAULT NULL,
+  `serviceprovider` varchar(100) NOT NULL,
+  `ReferenceId` int DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`SCMCDRid`)
+) ENGINE=InnoDB AUTO_INCREMENT=440 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `scmcampaign` (
+  `scmcampaignid` bigint NOT NULL AUTO_INCREMENT,
+  `scmid` bigint DEFAULT NULL,
+  `user_id` bigint NOT NULL,
+  `channel` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `scmname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `scheduletime` datetime DEFAULT NULL,
+  `uploadtype` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `simpleuploadlist` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `contactlistid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `jsonparam` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `dataparam` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `campaignstatus` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `request_type` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT 'campaign',
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`scmcampaignid`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin
+
+CREATE TABLE `reportsdownload` (
+  `downloadid` bigint NOT NULL AUTO_INCREMENT,
+  `requestid` varchar(64) DEFAULT NULL,
+  `reportid` bigint DEFAULT NULL,
+  `parameters` varchar(512) DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `createdon` datetime DEFAULT NULL,
+  `updatedon` datetime DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `emailids` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`downloadid`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1
+
+CREATE TABLE `rcstemplatetracker` (
+  `rcstemplatetrackerid` int NOT NULL AUTO_INCREMENT,
+  `rcstemplateid` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `rcstemplatename` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `actiontype` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `controlname` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `actiontime` datetime DEFAULT NULL,
+  `response` text COLLATE utf8mb4_general_ci,
+  `botid` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `customernumber` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `messageid` varchar(128) COLLATE utf8mb4_general_ci NOT NULL,
+  `createdtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `rcsdeliveryid` bigint DEFAULT NULL,
+  PRIMARY KEY (`rcstemplatetrackerid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `rcstemplates` (
+  `rcstemplateid` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `rctemplate_id` varchar(64) NOT NULL,
+  `templatedata` text,
+  `templateType` varchar(256) DEFAULT NULL,
+  `attachmentjson` text NOT NULL,
+  `inputjson` text,
+  `serviceprovider` int NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(32) NOT NULL,
+  `templatename` varchar(256) NOT NULL,
+  `data` text NOT NULL,
+  `rcs_status` varchar(64) DEFAULT NULL,
+  `template_catagory` varchar(64) NOT NULL,
+  `tempate_bot_id` varchar(64) NOT NULL,
+  `update_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rcstemplateid`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `serviceproviders` (
+  `serviceproviderid` bigint NOT NULL AUTO_INCREMENT,
+  `servicename` varchar(64) DEFAULT NULL,
+  `providername` varchar(64) DEFAULT NULL,
+  `createddate` datetime DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  PRIMARY KEY (`serviceproviderid`),
+  KEY `status` (`status`),
+  KEY `providername` (`providername`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1
+
+CREATE TABLE `rcsdelivery` (
+  `rcsdeliveryid` bigint NOT NULL AUTO_INCREMENT,
+  `rcsqueueapiid` bigint DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `transactionid` varchar(64) DEFAULT NULL,
+  `contactnumber` varchar(256) DEFAULT NULL,
+  `message_var` varchar(500) DEFAULT NULL,
+  `messagetype` varchar(64) DEFAULT NULL,
+  `ip` varchar(64) DEFAULT NULL,
+  `provider` varchar(64) DEFAULT NULL,
+  `rcsnumber` varchar(32) NOT NULL COMMENT 'from_number of customer',
+  `bot_id` varchar(256) NOT NULL,
+  `templateid` varchar(64) DEFAULT NULL,
+  `status` varchar(64) DEFAULT NULL,
+  `campaignid` varchar(64) DEFAULT NULL,
+  `submittime` datetime DEFAULT NULL,
+  `creditrequired` int DEFAULT '0',
+  `messageuuid` varchar(64) DEFAULT NULL,
+  `messageid` varchar(64) DEFAULT NULL,
+  `mediapath` varchar(500) DEFAULT NULL,
+  `mediaid` varchar(64) DEFAULT NULL,
+  `buttons` varchar(64) DEFAULT NULL,
+  `dynamicUrl` varchar(64) DEFAULT NULL,
+  `dlrstatus` varchar(64) DEFAULT NULL,
+  `senttime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dlrfinalstatus` varchar(64) DEFAULT NULL,
+  `dlrtime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dlrduration` varchar(64) DEFAULT NULL,
+  `error_title` varchar(256) DEFAULT NULL,
+  `error_details` text,
+  `scmq_id` bigint DEFAULT NULL,
+  `campaignupdate` tinyint(1) DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`rcsdeliveryid`)
+) ENGINE=InnoDB AUTO_INCREMENT=322 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `rcscredithistory` (
+  `rcscredithistory_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `rcsnumber` varchar(13) NOT NULL,
+  `bot_id` varchar(32) NOT NULL,
+  `template_id` varchar(64) NOT NULL,
+  `template_catagory` varchar(64) NOT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `status` varchar(32) NOT NULL DEFAULT 'active',
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `templateType` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`rcscredithistory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `rcscampaignqueue` (
+  `rcscampaignid` bigint NOT NULL AUTO_INCREMENT,
+  `rcscampaignname` varchar(128) DEFAULT NULL,
+  `templateid` varchar(128) DEFAULT NULL,
+  `templatename` varchar(128) DEFAULT NULL,
+  `templatedata` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `uploadtype` varchar(32) DEFAULT NULL,
+  `simpleuploadlist` varchar(32) DEFAULT NULL,
+  `contactlistid` varchar(64) DEFAULT NULL,
+  `messagetype` varchar(16) DEFAULT NULL,
+  `scheduledtime` datetime DEFAULT NULL,
+  `userid` bigint DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `rcsnumber` varchar(128) DEFAULT NULL,
+  `sender_bot_id` varchar(256) NOT NULL,
+  `campaignstatus` varchar(32) DEFAULT NULL COMMENT 'new,processing,completed',
+  `dataparam` varchar(100) DEFAULT NULL,
+  `servicename` varchar(64) DEFAULT NULL,
+  `ipaddress` varchar(32) DEFAULT NULL,
+  `serviceproviderid` varchar(32) DEFAULT NULL,
+  `columnmapping` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci,
+  `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
+  `servicetype` varchar(64) DEFAULT NULL,
+  `campaigntype` varchar(32) NOT NULL COMMENT 'simple, flowmanager',
+  `flowmanager_id` bigint DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`rcscampaignid`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `rcscampaigndata` (
+  `rcscampaigndataid` bigint NOT NULL AUTO_INCREMENT,
+  `rcscampaignid` bigint DEFAULT NULL,
+  `contactnumber` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `status` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `dynamic_variables` varchar(500) CHARACTER SET latin1 COLLATE latin1_swedish_ci DEFAULT NULL,
+  `createdon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`rcscampaigndataid`)
+) ENGINE=InnoDB AUTO_INCREMENT=336 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `rcsaccountdetails` (
+  `rcs_account_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `rcs_number` varchar(64) NOT NULL,
+  `serviceprovider` int NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT 'Active',
+  `bot_details` text NOT NULL,
+  `promo_bot_id` varchar(256) DEFAULT NULL,
+  `trans_bot_id` varchar(256) DEFAULT NULL,
+  `otp_bot_id` varchar(256) DEFAULT NULL,
+  `apikey` varchar(64) DEFAULT NULL,
+  `connections` text NOT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `parent_user_type` tinyint DEFAULT NULL,
+  PRIMARY KEY (`rcs_account_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `phone_country_code` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `iso` char(2) NOT NULL,
+  `name` varchar(80) NOT NULL,
+  `nicename` varchar(80) NOT NULL,
+  `iso3` char(3) DEFAULT NULL,
+  `numcode` smallint DEFAULT NULL,
+  `phonecode` int NOT NULL,
+  `waba_market_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+ CREATE TABLE `numbers` (
+  `n` bigint NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+ CREATE TABLE `flowmanager_response_log` (
+  `flow_response_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `flowintrection_id` bigint NOT NULL,
+  `flow_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  `replay_key` varchar(256) NOT NULL,
+  `reply_response` text NOT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `dialogtype` varchar(64) NOT NULL,
+  `dialog_id` int NOT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(256) NOT NULL,
+  PRIMARY KEY (`flow_response_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2038 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `flowmanager_interact` (
+  `flowintrection_id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `flow_id` bigint NOT NULL,
+  `waba_id` varchar(32) NOT NULL,
+  `node_id` int NOT NULL,
+  `waba_session_id` varchar(256) NOT NULL,
+  `waba_message_id` varchar(256) NOT NULL,
+  `contactnumber` varchar(16) NOT NULL,
+  `start_dialog` varchar(32) NOT NULL,
+  `current_dialog` varchar(32) NOT NULL,
+  `next_dialog` text NOT NULL,
+  `dialognname` varchar(256) NOT NULL,
+  `dialogtype` varchar(64) NOT NULL,
+  `template_id` varchar(256) DEFAULT NULL,
+  `createdon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedon` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(32) NOT NULL,
+  `flow_status` varchar(256) NOT NULL COMMENT 'started, inprogress,completed',
+  `flow_type` varchar(256) NOT NULL DEFAULT 'flowmanger',
+  `flow_channel` varchar(256) NOT NULL DEFAULT 'whatsapp',
+  PRIMARY KEY (`flowintrection_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7440 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+1 row in set (0.00 sec)
